@@ -42,6 +42,7 @@ export default function SecondSection() {
       `}</style>
 
       <section className="relative w-full overflow-hidden bg-[#0a0a0a]" style={{ minHeight: "100vh" }}>
+      
 
         {/* ── Tiled star pattern background ── */}
         <div
@@ -68,6 +69,7 @@ export default function SecondSection() {
         style={{ backgroundImage: `url("/savoy-background.png")`}}
        
         />
+         <div className="absolute inset-0 bg-black/70" /> 
 
         {/* ── Top text block ── */}
         <div className="relative z-10 pl-18 pt-20 pb-4 max-w-[660px]">

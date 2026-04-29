@@ -53,125 +53,73 @@ export default function SavoyServices() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-        .savoy-root,
-        .savoy-root *,
-        .savoy-root *::before,
-        .savoy-root *::after {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        .savoy-root {
-          font-family: 'Cormorant', Georgia, serif;
-
-          /* ── Real background image from /public ── */
-          background-image: url('/savoy-background.png');
-          background-repeat: repeat;
-          background-size: auto;
-          background-color: #0c0c0c;
-
-          width: 100%;
-          /* Top/bottom padding keeps vertical breathing room;
-             left padding anchors content the same distance from edge as in screenshots (~6.5vw ≈ 100px at 1540px wide) */
-          padding: 108px 0 128px 6.5vw;
-          color: #ffffff;
-        }
-
-        /* Content block occupies ~38% of canvas — left column only */
-        .savoy-inner {
-          width: 38%;
-          min-width: 320px;
-          max-width: 550px;
-        }
-
-        /* ── Heading ───────────────────────────────── */
-        .savoy-heading {
-          font-family: 'Cormorant', Georgia, serif;
-          font-weight: 300;
-          font-style: italic;
-          font-size: clamp(1.4rem, 2.35vw, 2rem);
-          line-height: 1.48;
-          letter-spacing: 0.008em;
-          color: #ffffff;
-          /* Space between heading and first service item */
-          margin-bottom: 76px;
-        }
-
-        /* ── Service list ───────────────────────────── */
-        .savoy-list {
-          list-style: none;
-        }
-
-        /* Pure whitespace gap — NO borders, matching reference */
-        .savoy-item + .savoy-item {
-          margin-top: 64px;
-        }
-
-        /* Tiny all-caps label (faint, above description) */
-        .savoy-label {
-          font-family: 'Cormorant', Georgia, serif;
-          font-weight: 500;
-          font-style: normal;
-          font-size: clamp(0.58rem, 0.68vw, 0.7rem);
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.35);
-          margin-bottom: 9px;
-        }
-
-        /* Description paragraph */
-        .savoy-desc {
-          font-family: 'Cormorant', Georgia, serif;
-          font-weight: 400;
-          font-style: normal;
-          font-size: clamp(0.8rem, 0.98vw, 0.92rem);
-          line-height: 1.7;
-          letter-spacing: 0.012em;
-          color: rgba(255, 255, 255, 0.78);
-          max-width: 430px;
-        }
-
-        /* ── Responsive ────────────────────────────── */
-        @media (max-width: 1024px) {
-          .savoy-root {
-            padding: 80px 0 96px 5vw;
-          }
-          .savoy-inner {
-            width: 55%;
-          }
-        }
-
-        @media (max-width: 700px) {
-          .savoy-root {
-            padding: 60px 24px 72px 24px;
-          }
-          .savoy-inner {
-            width: 100%;
-            min-width: unset;
-            max-width: unset;
-          }
-          .savoy-item + .savoy-item {
-            margin-top: 48px;
-          }
-        }
       `}</style>
 
-      <section className="savoy-root">
-        <div className="savoy-inner">
+      {/*
+        Section wrapper
+        — bg-[#0c0c0c] = dark base colour
+        — backgroundImage via inline style (Tailwind can't express url() with dynamic values safely)
+        — px-[6.5vw] mirrors the original 6.5vw left padding
+        — pt-[108px] / pb-[128px] = top / bottom breathing room
+      */}
+      <section
+        className="
+          relative
+          w-full min-h-screen
+          bg-[#0c0c0c]
+          text-white
+          pt-[108px] pb-[128px] px-[6.5vw]
+          max-lg:pt-20 max-lg:pb-24 max-lg:px-[5vw]
+          max-sm:px-6 max-sm:pt-[60px] max-sm:pb-[72px]
+        "
+        style={{
+          fontFamily: "'Cormorant', Georgia, serif",
+          backgroundImage: "url('/savoy-background.png')",
+          backgroundRepeat: 'repeat',
+          backgroundSize: 'auto',
+        }}
+      >
+        {/* Dark overlay on top of the background image */}
+        <div className="absolute inset-0 bg-black/70" />
 
-          <h2 className="savoy-heading">
+        {/*
+          Inner column — left ~38% of the canvas
+          max-lg widens to 55%, max-sm goes full-width
+          relative + z-10 keeps content above the overlay
+        */}
+        <div className="relative z-10 w-[38%] min-w-[320px] max-w-[550px] max-lg:w-[55%] max-sm:w-full max-sm:min-w-0 max-sm:max-w-none">
+
+          {/* ── Heading ─────────────────────────────── */}
+          <h2
+            className="font-light italic leading-[1.48] tracking-[0.008em] text-white mb-[76px] max-sm:mb-14"
+            style={{ fontSize: 'clamp(1.4rem, 2.35vw, 2rem)' }}
+          >
             Savoy offers a focused range of banking and fiduciary
             services designed to meet the needs of a diversified
             international clientele.
           </h2>
 
-          <ul className="savoy-list">
+          {/* ── Service list ────────────────────────── */}
+          <ul className="list-none p-0 m-0 space-y-16 max-sm:space-y-12">
             {services.map((service, i) => (
-              <li key={i} className="savoy-item">
-                <p className="savoy-label">{service.label}</p>
-                <p className="savoy-desc">{service.description}</p>
+              <li key={i}>
+
+                {/* Tiny all-caps category label */}
+                <p
+                  className="font-medium not-italic uppercase tracking-[0.2em] text-white/35 mb-[9px]"
+                  style={{ fontSize: 'clamp(0.58rem, 0.68vw, 0.7rem)' }}
+                >
+                  {service.label}
+                </p>
+
+                {/* Description paragraph */}
+                <p
+                  className="font-normal not-italic leading-[1.7] tracking-[0.012em] text-white/[0.78] max-w-[430px]"
+                  style={{ fontSize: 'clamp(0.8rem, 0.98vw, 0.92rem)' }}
+                >
+                  {service.description}
+                </p>
+
               </li>
             ))}
           </ul>
