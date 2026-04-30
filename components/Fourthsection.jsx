@@ -186,7 +186,7 @@ export default function SavoyServices() {
 
           <h2
             className="fourth-heading font-light text-white mb-[76px] max-sm:mb-14"
-            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.3,}}
+            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.0,}}
           >
             Savoy offers a focused range of banking and fiduciary
             services designed to meet the needs of a diversified

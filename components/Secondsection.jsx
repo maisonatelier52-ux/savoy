@@ -354,7 +354,7 @@ export default function SecondSection() {
               color: "white",
               fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
               fontWeight: 300,
-              lineHeight: 1.3,
+              lineHeight: 1.0,
             }}
           >
             Savoy Bank &amp; Trust brings together traditional banking values

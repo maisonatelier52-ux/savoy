@@ -561,7 +561,7 @@ export default function Home() {
                 fontFamily: "'Cormorant Garamond', 'Georgia', serif",
                 fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
                 fontWeight: 300,
-                lineHeight: 1.3,
+                lineHeight: 1.0,
               }}
             >
               Tailored banking, trust, and market services for clients
