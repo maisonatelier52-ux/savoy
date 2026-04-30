@@ -1,9 +1,245 @@
+// "use client";
+
+// import { useEffect, useRef, useState } from "react";
+// import Image from "next/image";
+
+// /* ── Intersection Observer hook — fires once when section enters viewport ── */
+// function useInView(threshold = 0.12) {
+//   const ref = useRef(null);
+//   const [inView, setInView] = useState(false);
+//   useEffect(() => {
+//     const el = ref.current;
+//     if (!el) return;
+//     const obs = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setInView(true);
+//           obs.disconnect();
+//         }
+//       },
+//       { threshold },
+//     );
+//     obs.observe(el);
+//     return () => obs.disconnect();
+//   }, [threshold]);
+//   return [ref, inView];
+// }
+
+// const pillars = [
+//   "Legacy and Tradition",
+//   "International Perspective",
+//   "Customized Solutions",
+//   "Bahamas-Based, Globally Oriented",
+// ];
+
+// export default function SecondSection() {
+//   const [rowRef, rowInView] = useInView(0.1);
+
+//   return (
+//     <>
+//       <style>{`
+//         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
+//       `}</style>
+
+//       <section
+//         className="relative w-full overflow-hidden bg-[#0a0a0a]"
+//         style={{ minHeight: "100vh" }}
+//       >
+//         {/* ── Tiled star pattern background ── */}
+//         <div
+//           className="absolute inset-0 pointer-events-none"
+//           //   style={{
+//           //     backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(`
+//           //       <svg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'>
+//           //         <g fill='white' opacity='0.11'>
+//           //           <path d='M44 4 L46.5 40 L44 44 L41.5 40 Z'/>
+//           //           <path d='M44 84 L46.5 48 L44 44 L41.5 48 Z'/>
+//           //           <path d='M4 44 L40 41.5 L44 44 L40 46.5 Z'/>
+//           //           <path d='M84 44 L48 41.5 L44 44 L48 46.5 Z'/>
+//           //           <path d='M74 14 L48 40 L44 44 L40 40 Z' opacity='0.65'/>
+//           //           <path d='M14 14 L40 40 L44 44 L48 40 Z' opacity='0.65'/>
+//           //           <path d='M74 74 L48 48 L44 44 L40 48 Z' opacity='0.65'/>
+//           //           <path d='M14 74 L40 48 L44 44 L48 48 Z' opacity='0.65'/>
+//           //         </g>
+//           //       </svg>
+//           //     `)}`,
+//           //     backgroundRepeat: "repeat",
+//           //     backgroundSize: "88px 88px",
+//           //   }}
+
+//           style={{ backgroundImage: `url("/savoy-background.png")` }}
+//         />
+//         <div className="absolute inset-0 bg-black/70" />
+
+//         {/* ── Top text block ── */}
+//         <div className="relative z-10 pl-18 pt-50 pb-4 max-w-[660px] ">
+//           {/* <p
+//             className="mb-6 uppercase tracking-widest"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', Georgia, serif",
+//               color: "rgb(255, 255, 255)",
+//               // fontSize: "0.67rem",
+//               letterSpacing: "0.18em",
+//             }}
+//           >
+//             SAVOY BANK &amp; TRUST &nbsp;|&nbsp; Traditional Values. International Perspective
+//           </p> */}
+//           <p
+//             className="mb-6 tracking-widest"
+//             style={{
+//               color: "rgb(255, 255, 255)",
+//               fontSize: "0.95rem",
+//               // letterSpacing: "0.18em",
+//             }}
+//           >
+//             <span
+//               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+//             >
+//               SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+//             </span>
+//             <span
+//               style={{
+//                 fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+//                 // textTransform: "lowercase",
+//               }}
+//             >
+//               Traditional Values. International Perspective
+//             </span>
+//           </p>
+
+//           <p
+//   className="mb-8"
+//   style={{
+//     fontFamily: "'Cormorant Garamond', Georgia, serif",
+//     color: "white",
+//     fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
+//     fontWeight: 300,
+//     lineHeight: 1.3,  // Reduced from default (~1.7)
+//   }}
+// >
+//   Savoy Bank &amp; Trust brings together traditional banking values
+//   and an international perspective to deliver tailored financial
+//   solutions for a discerning clientele. Our approach is grounded in
+//   personal attention, measured judgment, and long-term relationships
+//   built on trust.
+// </p>
+
+//           <p
+//   style={{
+//     fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+//     color: "rgb(255, 255, 255)",
+//     fontSize: "clamp(0.90rem, 1.3vw, 0.83rem)",
+//     fontWeight: 400,
+//     lineHeight: 1.3,
+//   }}
+// >
+//   From day-to-day banking needs to more specialized fiduciary and
+//   market-related requirements, Savoy offers a refined client
+//   experience shaped around individual objectives rather than
+//   standardized service models.
+// </p>
+//         </div>
+
+//         {/* ── Bottom row: oversized star (left) + pillar text (right) ── */}
+//         <div
+//           ref={rowRef}
+//           className="relative z-10 flex items-center px-20 pb-35"
+//           style={{ minHeight: "100vh" }}
+//         >
+//           {/* Left column — logo grows in, bleeds off-screen left */}
+//           <div
+//             className="relative flex-shrink-0 overflow-hidden"
+//             style={{ width: "44%", minHeight: "100vh" }}
+//           >
+//             <div
+//               style={{
+//                 position: "absolute",
+//                 left: "1%",
+//                 top: "50%",
+//                 transformOrigin: "center center",
+//                 transform: rowInView
+//                   ? "translateY(-50%) scale(1)"
+//                   : "translateY(-50%) scale(0.08)",
+//                 opacity: rowInView ? 1 : 0,
+//                 transition: [
+//                   "transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
+//                   "opacity 1s ease-in 0.1s",
+//                 ].join(", "),
+//               }}
+//             >
+//               {/*
+//                 ── Replace with your actual logo image:
+//                    <Image src="/savoy-star.png" alt="Savoy" width={560} height={560} />
+//                 ──
+//               */}
+//               <Image
+//                 src="/logo-savoy.png"
+//                 alt="Savoy Star"
+//                 width={600}
+//                 height={600}
+//                 priority
+//               />
+//             </div>
+//           </div>
+
+//           {/* Right column — staggered pillar lines */}
+//           {/* <div className="flex flex-col pl-50" style={{ width: "56%", paddingRight: "3rem" }}>
+//             {pillars.map((text, i) => (
+//               <p
+//                 key={text}
+//                 style={{
+//                   fontFamily: "'Cormorant Garamond', Georgia, serif",
+//                   color: "white",
+//                   fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
+//                   fontWeight: 300,
+//                   lineHeight: 1.8,
+//                   margin: 0,
+//                   opacity: rowInView ? 1 : 0,
+//                   transform: rowInView ? "translateX(0)" : "translateX(28px)",
+//                   transition: [
+//                     `opacity 1s ease ${0.5 + i * 0.2}s`,
+//                     `transform 1s ease ${0.5 + i * 0.2}s`,
+//                   ].join(", "),
+//                 }}
+//               >
+//                 {text}
+//               </p>
+//             ))}
+//           </div> */}
+//           <div
+//             className="flex flex-col pl-50"
+//             style={{ width: "56%", paddingRight: "3rem" }}
+//           >
+//             {pillars.map((text, i) => (
+//               <p
+//                 key={text}
+//                 style={{
+//                   fontFamily: "'Cormorant Garamond', Georgia, serif",
+//                   color: "white",
+//                   fontSize: "clamp(0.95rem, 1.8vw, 2.2rem)",
+//                   fontWeight: 400,
+//                   lineHeight: 1.0,
+//                   margin: 0,
+//                   opacity: rowInView ? 1 : 0,
+//                   transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
+//                 }}
+//               >
+//                 {text}
+//               </p>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+//     </>
+//   );
+// }
+
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-/* ── Intersection Observer hook — fires once when section enters viewport ── */
 function useInView(threshold = 0.12) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
@@ -12,12 +248,9 @@ function useInView(threshold = 0.12) {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
+        if (entry.isIntersecting) { setInView(true); obs.disconnect(); }
       },
-      { threshold }
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -39,95 +272,127 @@ export default function SecondSection() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap');
+
+        /* ── Mobile-only overrides — desktop untouched ── */
+        @media (max-width: 1024px) {
+          .second-top-block { padding-left: 5vw !important; padding-top: 18vh !important; }
+          .second-bottom-row { padding-left: 5vw !important; padding-right: 5vw !important; }
+          .second-logo-col { width: 40% !important; }
+          .second-pillars-col { width: 60% !important; padding-left: 1.5rem !important; }
+        }
+
+        @media (max-width: 640px) {
+          .second-top-block {
+            padding-left: 6vw !important;
+            padding-right: 6vw !important;
+            padding-top: 12vh !important;
+            max-width: 100% !important;
+          }
+          .second-bottom-row {
+            flex-direction: column !important;
+            align-items: center !important;
+            padding-left: 6vw !important;
+            padding-right: 6vw !important;
+            padding-bottom: 12vh !important;
+            min-height: unset !important;
+          }
+          .second-logo-col {
+            width: 100% !important;
+            min-height: 260px !important;
+            height: 260px !important;
+          }
+          .second-logo-inner {
+            left: 50% !important;
+            transform-origin: center center !important;
+          }
+          .second-logo-inner-animated-in {
+            transform: translate(-50%, -50%) scale(1) !important;
+          }
+          .second-logo-inner-animated-out {
+            transform: translate(-50%, -50%) scale(0.08) !important;
+          }
+          .second-pillars-col {
+            width: 100% !important;
+            padding-left: 0 !important;
+            text-align: center !important;
+          }
+          .second-pillar-text {
+            font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
+          }
+        }
       `}</style>
 
-      <section className="relative w-full overflow-hidden bg-[#0a0a0a]" style={{ minHeight: "100vh" }}>
-      
-
-        {/* ── Tiled star pattern background ── */}
+      <section
+        className="relative w-full overflow-hidden bg-[#0a0a0a]"
+        style={{ minHeight: "100vh" }}
+      >
+        {/* Background — unchanged */}
         <div
           className="absolute inset-0 pointer-events-none"
-        //   style={{
-        //     backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(`
-        //       <svg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'>
-        //         <g fill='white' opacity='0.11'>
-        //           <path d='M44 4 L46.5 40 L44 44 L41.5 40 Z'/>
-        //           <path d='M44 84 L46.5 48 L44 44 L41.5 48 Z'/>
-        //           <path d='M4 44 L40 41.5 L44 44 L40 46.5 Z'/>
-        //           <path d='M84 44 L48 41.5 L44 44 L48 46.5 Z'/>
-        //           <path d='M74 14 L48 40 L44 44 L40 40 Z' opacity='0.65'/>
-        //           <path d='M14 14 L40 40 L44 44 L48 40 Z' opacity='0.65'/>
-        //           <path d='M74 74 L48 48 L44 44 L40 48 Z' opacity='0.65'/>
-        //           <path d='M14 74 L40 48 L44 44 L48 48 Z' opacity='0.65'/>
-        //         </g>
-        //       </svg>
-        //     `)}`,
-        //     backgroundRepeat: "repeat",
-        //     backgroundSize: "88px 88px",
-        //   }}
-
-        style={{ backgroundImage: `url("/savoy-background.png")`}}
-       
+          style={{ backgroundImage: `url("/savoy-background.png")` }}
         />
-         <div className="absolute inset-0 bg-black/70" /> 
+        <div className="absolute inset-0 bg-black/70" />
 
-        {/* ── Top text block ── */}
-        <div className="relative z-10 pl-18 pt-20 pb-4 max-w-[660px]">
+        {/* ── Top text block — original styles ── */}
+        <div className="second-top-block relative z-10 pl-18 pt-50 pb-4 max-w-[660px]">
           <p
-            className="mb-6 uppercase tracking-widest"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "rgba(255,255,255,0.5)",
-              fontSize: "0.67rem",
-              letterSpacing: "0.18em",
-            }}
+            className="mb-6 tracking-widest"
+            style={{ color: "rgb(255, 255, 255)", fontSize: "0.95rem" }}
           >
-            SAVOY BANK &amp; TRUST &nbsp;|&nbsp; Traditional Values. International Perspective
+            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+              SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+            </span>
+            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+              Traditional Values. International Perspective
+            </span>
           </p>
 
           <p
-            className="mb-8 leading-relaxed"
+            className="mb-8"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               color: "white",
-              fontSize: "clamp(1.05rem, 2vw, 1.3rem)",
+              fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
               fontWeight: 300,
-              lineHeight: 1.7,
+              lineHeight: 1.3,
             }}
           >
-            Savoy Bank &amp; Trust brings together traditional banking values and an
-            international perspective to deliver tailored financial solutions for a
-            discerning clientele. Our approach is grounded in personal attention,
-            measured judgment, and long-term relationships built on trust.
+            Savoy Bank &amp; Trust brings together traditional banking values
+            and an international perspective to deliver tailored financial
+            solutions for a discerning clientele. Our approach is grounded in
+            personal attention, measured judgment, and long-term relationships
+            built on trust.
           </p>
 
           <p
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "rgba(255,255,255,0.45)",
-              fontSize: "clamp(0.73rem, 1.3vw, 0.83rem)",
-              fontWeight: 300,
-              lineHeight: 1.75,
+              fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+              color: "rgb(255, 255, 255)",
+              fontSize: "clamp(0.90rem, 1.3vw, 0.83rem)",
+              fontWeight: 400,
+              lineHeight: 1.3,
             }}
           >
-            From day-to-day banking needs to more specialized fiduciary and market-related
-            requirements, Savoy offers a refined client experience shaped around individual
-            objectives rather than standardized service models.
+            From day-to-day banking needs to more specialized fiduciary and
+            market-related requirements, Savoy offers a refined client
+            experience shaped around individual objectives rather than
+            standardized service models.
           </p>
         </div>
 
-        {/* ── Bottom row: oversized star (left) + pillar text (right) ── */}
+        {/* ── Bottom row — original styles ── */}
         <div
           ref={rowRef}
-          className="relative z-10 flex items-center px-30"
+          className="second-bottom-row relative z-10 flex items-center px-20 pb-35"
           style={{ minHeight: "100vh" }}
         >
-          {/* Left column — logo grows in, bleeds off-screen left */}
+          {/* Logo col */}
           <div
-            className="relative flex-shrink-0 overflow-hidden"
+            className="second-logo-col relative flex-shrink-0 overflow-hidden"
             style={{ width: "44%", minHeight: "100vh" }}
           >
             <div
+              className="second-logo-inner"
               style={{
                 position: "absolute",
                 left: "1%",
@@ -143,11 +408,6 @@ export default function SecondSection() {
                 ].join(", "),
               }}
             >
-              {/*
-                ── Replace with your actual logo image:
-                   <Image src="/savoy-star.png" alt="Savoy" width={560} height={560} />
-                ──
-              */}
               <Image
                 src="/logo-savoy.png"
                 alt="Savoy Star"
@@ -158,49 +418,27 @@ export default function SecondSection() {
             </div>
           </div>
 
-          {/* Right column — staggered pillar lines */}
-          {/* <div className="flex flex-col pl-50" style={{ width: "56%", paddingRight: "3rem" }}>
+          {/* Pillars col */}
+          <div className="second-pillars-col flex flex-col pl-50" style={{ width: "56%", paddingRight: "3rem" }}>
             {pillars.map((text, i) => (
               <p
                 key={text}
+                className="second-pillar-text"
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   color: "white",
-                  fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)",
-                  fontWeight: 300,
-                  lineHeight: 1.8,
+                  fontSize: "clamp(0.95rem, 1.8vw, 2.2rem)",
+                  fontWeight: 400,
+                  lineHeight: 1.0,
                   margin: 0,
                   opacity: rowInView ? 1 : 0,
-                  transform: rowInView ? "translateX(0)" : "translateX(28px)",
-                  transition: [
-                    `opacity 1s ease ${0.5 + i * 0.2}s`,
-                    `transform 1s ease ${0.5 + i * 0.2}s`,
-                  ].join(", "),
+                  transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
                 }}
               >
                 {text}
               </p>
             ))}
-          </div> */}
-            <div className="flex flex-col pl-50" style={{ width: "56%", paddingRight: "3rem" }}>
-            {pillars.map((text, i) => (
-                <p
-                key={text}
-                style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    color: "white",
-                    fontSize: "clamp(0.95rem, 1.8vw, 2.2rem)",
-                    fontWeight: 300,
-                    lineHeight: 1.3,
-                    margin: 0,
-                    opacity: rowInView ? 1 : 0,
-                    transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
-                }}
-                >
-                {text}
-                </p>
-            ))}
-            </div>
+          </div>
         </div>
       </section>
     </>
