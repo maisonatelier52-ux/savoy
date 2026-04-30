@@ -91,16 +91,17 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+  icon: "/savoy-icon.ico",
+  shortcut: "/savoy-icon.ico",
+  apple: "/savoy-icon.ico",
+},
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <head>
+        <link rel="icon" href="/savoy-icon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#000000" />
