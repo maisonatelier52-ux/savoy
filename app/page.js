@@ -494,9 +494,9 @@ export default function Home() {
           <header
             className="page-header absolute top-0 left-0 right-0 z-30 flex items-center justify-between pl-15 pr-25 py-10 pt-13"
             style={{
-              opacity: phase >= 2 ? 1 : 0,
-              transform: phase >= 2 ? "translateY(0)" : "translateY(-20px)",
-              transition: "opacity 1.2s ease-out, transform 1.2s ease-out",
+              opacity: phase >= 4 ? 1 : 0,
+              transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
+              transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
             }}
           >
             {/* Logo — exactly as original */}
@@ -559,8 +559,9 @@ export default function Home() {
               className="text-white max-w-[680px] leading-none text-3xl"
               style={{
                 fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                fontSize: "clamp(1.4rem, 3vw, 2rem)",
+                fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
                 fontWeight: 300,
+                lineHeight: 1.3,
               }}
             >
               Tailored banking, trust, and market services for clients

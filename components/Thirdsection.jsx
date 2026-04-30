@@ -278,7 +278,7 @@ export default function SavoyAbout() {
 
       {/* Original section — untouched */}
       <section
-        className="third-section-root bg-black w-full min-h-screen pt-[33vh] pb-[53vh] pl-[5.1vw]"
+        className="third-section-root bg-black w-full h-[500px] pt-[15vh] pb-[15vh] pl-[5.1vw]"
         style={{ fontFamily: "'Cormorant', Georgia, serif" }}
       >
         <div className="third-inner w-[44%] min-w-[320px] max-w-[660px]">
@@ -287,19 +287,19 @@ export default function SavoyAbout() {
           <p className="third-eyebrow flex items-center gap-0 mb-5 text-white uppercase tracking-[0.22em]">
             <span
               className="font-bold"
-              style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)" }}
+              style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "0.99rem" }}
             >
               Savoy Bank &amp; Trust
             </span>
             <span
               className="mx-[10px] font-light tracking-normal text-white"
-              style={{ fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)" }}
+              style={{ fontSize: "0.99rem"}}
             >
               |
             </span>
             <span
               className="font-medium normal-case tracking-[0.04em] text-white"
-              style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif", fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)" }}
+              style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif", fontSize: "0.99rem" }}
             >
               The Bahamas
             </span>
@@ -308,7 +308,7 @@ export default function SavoyAbout() {
           {/* Heading — original */}
           <h1
             className="third-heading font-light text-white mb-9"
-            style={{ fontSize: "clamp(1.0rem, 2.4vw, 2.05rem)", lineHeight: 1.0 }}
+            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.0 }}
           >
             Savoy Bank &amp; Trust is a privately held financial
             institution in The Bahamas, serving clients through
@@ -323,9 +323,9 @@ export default function SavoyAbout() {
             className="third-body font-normal text-white max-w-[600px]"
             style={{
               fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
-              fontSize: "clamp(1.0rem, 0.98vw, 0.92rem)",
-              lineHeight: 1.0,
-              letterSpacing: "0.012em",
+              fontSize: "clamp(0.83rem, 1.1vw, 0.95rem)",
+              lineHeight: 1.3,
+              // letterSpacing: "0.012em",
             }}
           >
             Clients benefit from a relationship-led model shaped by experience,

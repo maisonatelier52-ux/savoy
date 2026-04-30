@@ -334,7 +334,7 @@ export default function SecondSection() {
         <div className="absolute inset-0 bg-black/70" />
 
         {/* ── Top text block — original styles ── */}
-        <div className="second-top-block relative z-10 pl-18 pt-50 pb-4 max-w-[660px]">
+        <div className="second-top-block relative z-10 pl-18 pt-25 pb-4 max-w-[660px]">
           <p
             className="mb-6 tracking-widest"
             style={{ color: "rgb(255, 255, 255)", fontSize: "0.95rem" }}
@@ -368,8 +368,8 @@ export default function SecondSection() {
             style={{
               fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
               color: "rgb(255, 255, 255)",
-              fontSize: "clamp(0.90rem, 1.3vw, 0.83rem)",
-              fontWeight: 400,
+              fontSize: "clamp(0.83rem, 1.1vw, 0.95rem)",
+              fontWeight: 300,
               lineHeight: 1.3,
             }}
           >
@@ -383,7 +383,7 @@ export default function SecondSection() {
         {/* ── Bottom row — original styles ── */}
         <div
           ref={rowRef}
-          className="second-bottom-row relative z-10 flex items-center px-20 pb-35"
+          className="second-bottom-row relative z-10 flex items-center px-20 pb-25"
           style={{ minHeight: "100vh" }}
         >
           {/* Logo col */}
@@ -427,9 +427,9 @@ export default function SecondSection() {
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   color: "white",
-                  fontSize: "clamp(0.95rem, 1.8vw, 2.2rem)",
+                  fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
                   fontWeight: 400,
-                  lineHeight: 1.0,
+                  lineHeight: 1.1,
                   margin: 0,
                   opacity: rowInView ? 1 : 0,
                   transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,

@@ -172,7 +172,7 @@ export default function SavoyServices() {
       `}</style>
 
       <section
-        className="fourth-section-root relative w-full min-h-screen bg-[#0c0c0c] text-white pt-[33vh] pb-[128px] px-[6.5vw] max-lg:pt-20 max-lg:pb-24 max-lg:px-[5vw] max-sm:px-6 max-sm:pt-[60px] max-sm:pb-[72px]"
+        className="fourth-section-root relative w-full min-h-screen bg-[#0c0c0c] text-white pt-[15vh] pb-[128px] px-[6.5vw] max-lg:pt-20 max-lg:pb-24 max-lg:px-[5vw] max-sm:px-6 max-sm:pt-[60px] max-sm:pb-[72px]"
         style={{
           fontFamily: "'Cormorant', Georgia, serif",
           backgroundImage: "url('/savoy-background.png')",
@@ -186,7 +186,7 @@ export default function SavoyServices() {
 
           <h2
             className="fourth-heading font-light text-white mb-[76px] max-sm:mb-14"
-            style={{ fontSize: 'clamp(1.4rem, 2.35vw, 2rem)', lineHeight: 1.0 }}
+            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.3,}}
           >
             Savoy offers a focused range of banking and fiduciary
             services designed to meet the needs of a diversified
