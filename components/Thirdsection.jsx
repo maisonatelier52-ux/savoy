@@ -263,7 +263,7 @@ export default function SavoyAbout() {
       <style>{`
         /* ── Mobile-only overrides — desktop untouched ── */
         @media (max-width: 1024px) {
-          .third-section-root { padding-top: 26vh !important; padding-bottom: 12vh !important; padding-left: 5vw !important; }
+          .third-section-root { padding-top: 10vh !important; padding-bottom: 12vh !important; padding-left: 5vw !important; }
           .third-inner { width: 62% !important; }
         }
         @media (max-width: 640px) {
