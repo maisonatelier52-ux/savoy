@@ -414,7 +414,7 @@ export default function Home() {
         <div className="relative w-full min-h-screen bg-black overflow-hidden">
 
           {/* ── VIDEO LAYER — unchanged ── */}
-          <div
+          {/* <div
             className="absolute inset-0 transition-opacity"
             style={{
               opacity: phase === 1 ? 1 : phase === 2 ? 1 : phase >= 3 ? 0 : 0,
@@ -428,7 +428,67 @@ export default function Home() {
               autoPlay muted loop playsInline
               src="/homebannervideo.mp4"
             />
-          </div>
+          </div> */}
+
+          {/* ── VIDEO LAYER — unchanged ── */}
+<div
+  className="absolute inset-0 transition-opacity"
+  style={{
+    opacity: phase === 1 ? 1 : phase === 2 ? 1 : phase >= 3 ? 0 : 0,
+    transitionDuration: phase === 1 ? "1800ms" : "2000ms",
+    transitionTimingFunction: "ease-in-out",
+  }}
+>
+  <video
+    ref={videoRef}
+    className="w-full h-full object-cover"
+    autoPlay muted loop playsInline
+    src="/homebannervideo.mp4"
+  />
+</div>
+
+{/* ── LIGHTHOUSE IMAGE — fades in after video fades out (phase >= 3) ── */}
+<div
+  className="absolute inset-0 transition-opacity"
+  style={{
+    opacity: phase >= 3 ? 1 : 0,
+    transitionDuration: "3000ms",
+    transitionTimingFunction: "ease-in-out",
+  }}
+>
+  {/* Right-side lighthouse image - Strong top fade to black */}
+  <div
+    className="absolute"
+    style={{
+      right: 0,
+      top: 0,                    // Start from the very top
+      bottom: 0,
+      width: "55%",
+    }}
+  >
+    <img
+      src="/lighthouse-2.png"
+      alt="Lighthouse"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        objectPosition: "center top",
+        // Improved mask: soft right fade + strong smooth top fade
+        maskImage: `
+          linear-gradient(to right, transparent 5%, black 50%),
+          linear-gradient(to top, transparent 0%, black 50%)
+        `,
+        WebkitMaskImage: `
+          linear-gradient(to right, transparent 5%, black 50%),
+          linear-gradient(to top, transparent 0%, black 50%)
+        `,
+        maskComposite: "intersect",
+        WebkitMaskComposite: "intersect",
+      }}
+    />
+  </div>
+</div>
 
           {/* ── HEADER — original layout, hamburger added for mobile ── */}
           <header
