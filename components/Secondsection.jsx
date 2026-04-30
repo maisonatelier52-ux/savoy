@@ -302,7 +302,7 @@ export default function SecondSection() {
             height: 260px !important;
           }
           .second-logo-inner {
-            left: 50% !important;
+            right: 50% !important;
             transform-origin: center center !important;
           }
           .second-logo-inner-animated-in {
@@ -314,7 +314,7 @@ export default function SecondSection() {
           .second-pillars-col {
             width: 100% !important;
             padding-left: 0 !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           .second-pillar-text {
             font-size: clamp(1.1rem, 5vw, 1.6rem) !important;

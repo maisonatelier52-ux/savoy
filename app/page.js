@@ -362,11 +362,53 @@ export default function Home() {
       `}</style>
 
       {/* Mobile drawer nav */}
-      <nav className={`mobile-nav${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+      {/* <nav className={`mobile-nav${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
         {navItems.map((item) => (
           <a key={item} href="#" onClick={() => setMenuOpen(false)}>{item}</a>
         ))}
-      </nav>
+      </nav> */}
+      {/* Mobile drawer nav */}
+<nav className={`mobile-nav${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+
+  {/* ── Close button ── */}
+  <button
+    onClick={() => setMenuOpen(false)}
+    aria-label="Close menu"
+    style={{
+      position: "absolute",
+      top: "1.5rem",
+      right: "1.5rem",
+      background: "none",
+      border: "none",
+      cursor: "pointer",
+      padding: "8px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "5px",
+      zIndex: 120,
+    }}
+  >
+    <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transform: "translateY(3.25px) rotate(45deg)", transition: "transform 0.3s ease" }} />
+    <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transform: "translateY(-3.25px) rotate(-45deg)", transition: "transform 0.3s ease" }} />
+  </button>
+
+  {navItems.map((item) => (
+    <a key={item} href="#" onClick={() => setMenuOpen(false)}>{item}</a>
+  ))}
+</nav>
+
+{/* Tap-outside backdrop */}
+{menuOpen && (
+  <div
+    onClick={() => setMenuOpen(false)}
+    style={{
+      position: "fixed",
+      inset: 0,
+      zIndex: 99,
+    }}
+    aria-hidden="true"
+  />
+)}
 
       <div>
         <div className="relative w-full min-h-screen bg-black overflow-hidden">

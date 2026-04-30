@@ -257,8 +257,8 @@ export default function BrandFooterSection() {
         @media (max-width: 640px) {
           .footer-logo-img { width: 52px !important; height: 52px !important; }
           .footer-wordmark { font-size: 3rem !important; }
-          .footer-sub { padding-left: 3.5rem !important; font-size: 0.6rem !important; }
-          .footer-section-root { padding: 5rem 1.5rem !important; min-height: 40vh !important; }
+          .footer-sub { padding-left: 3.5rem !important; font-size: 0.5rem !important; }
+          .footer-section-root { padding: 5rem 1.5rem !important; min-height: 10vh !important; }
         }
       `}</style>
 

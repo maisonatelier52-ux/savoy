@@ -267,12 +267,13 @@ export default function SavoyAbout() {
           .third-inner { width: 62% !important; }
         }
         @media (max-width: 640px) {
-          .third-section-root { padding-top: 14vh !important; padding-bottom: 10vh !important; padding-left: 6vw !important; padding-right: 6vw !important; }
+          .third-section-root { padding-left: 6vw !important; padding-right: 6vw !important; }
           .third-inner { width: 100% !important; min-width: unset !important; max-width: unset !important; }
           .third-eyebrow { flex-wrap: wrap !important; gap: 0.2rem !important; }
           .third-heading { font-size: clamp(1.25rem, 5vw, 1.7rem) !important; }
           .third-body { font-size: 0.9rem !important; line-height: 1.65 !important; }
         }
+          // padding-top: 14vh !important; padding-bottom: 10vh !important;
       `}</style>
 
       {/* Original section — untouched */}
