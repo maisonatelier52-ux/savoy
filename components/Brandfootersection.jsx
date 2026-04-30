@@ -1,5 +1,3 @@
-
-
 // "use client";
 
 // import { useEffect, useRef, useState } from "react";
@@ -137,7 +135,7 @@ export default function BrandFooterSection() {
 
       const progress = Math.min(
         Math.max((windowH - rect.top) / (windowH + rect.height * 0.5), 0),
-        1
+        1,
       );
 
       if (progress >= 0.99) {
@@ -260,15 +258,16 @@ export default function BrandFooterSection() {
       </section>
 
       {/* ── 2. FULL FOOTER (EGS-style) ── */}
-      <footer className="w-full bg-[#080808] text-white" style={{ fontFamily: "Avenir, 'Nunito Sans', sans-serif" }}>
+      <footer
+        className="w-full bg-[#080808] text-white"
+        style={{ fontFamily: "Avenir, 'Nunito Sans', sans-serif" }}
+      >
         {/* Top divider */}
         <div className="w-full h-px bg-white/10" />
 
         <div className="w-[82%] mx-auto py-16 flex flex-col gap-10">
-
           {/* Row 1 — Logos + Address + Contact */}
           <div className="flex items-start justify-between gap-10 flex-wrap">
-
             {/* Left — logos stacked */}
             <div className="flex flex-col gap-3">
               <Image
@@ -287,20 +286,36 @@ export default function BrandFooterSection() {
             </div>
 
             {/* Centre — address */}
-            <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100, maxWidth: "260px" }}>
-              <p className="text-white uppercase tracking-widest text-[13px] mb-1">Registered Office</p>
+            <div
+              className="flex flex-col gap-1 text-[12px] text-white"
+              style={{ fontWeight: 100, maxWidth: "260px" }}
+            >
+              <p className="text-white uppercase tracking-widest text-[13px] mb-1">
+                Registered Office
+              </p>
               <p>Savoy Bank &amp; Trust</p>
               <p>Nassau, New Providence</p>
               <p>The Bahamas</p>
             </div>
 
             {/* Right — contact */}
-            <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100 }}>
-              <p className="text-white uppercase tracking-widest text-[13px] mb-1">Contact</p>
-              <a href="mailto:info@savoybankandtrust.com" className="hover:text-white transition-colors">
+            <div
+              className="flex flex-col gap-1 text-[12px] text-white"
+              style={{ fontWeight: 100 }}
+            >
+              <p className="text-white uppercase tracking-widest text-[13px] mb-1">
+                Contact
+              </p>
+              <a
+                href="mailto:info@savoybankandtrust.com"
+                className="hover:text-white transition-colors"
+              >
                 info@savoybankandtrust.com
               </a>
-              <a href="tel:+12425000000" className="hover:text-white transition-colors mt-1">
+              <a
+                href="tel:+12425000000"
+                className="hover:text-white transition-colors mt-1"
+              >
                 +1 (242) 500-0000
               </a>
             </div>
@@ -311,14 +326,26 @@ export default function BrandFooterSection() {
 
           {/* Row 2 — Nav links + copyright */}
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-white" style={{ fontWeight: 100 }}>
-              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Cookies Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Risk Disclosures</a>
+            <div
+              className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-white"
+              style={{ fontWeight: 100 }}
+            >
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Use
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Cookies Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Risk Disclosures
+              </a>
             </div>
             <p className="text-[12px] text-white" style={{ fontWeight: 100 }}>
-              © {new Date().getFullYear()} Savoy Bank &amp; Trust. All rights reserved.
+              © {new Date().getFullYear()} Savoy Bank &amp; Trust. All rights
+              reserved.
             </p>
           </div>
 
@@ -327,12 +354,14 @@ export default function BrandFooterSection() {
             className="text-[12px] text-white leading-relaxed"
             style={{ fontWeight: 100, letterSpacing: "0.01em" }}
           >
-            Savoy Bank &amp; Trust is a privately held financial institution licensed and regulated in The Bahamas.
-            This website is for informational purposes only and does not constitute financial, investment, or legal advice.
-            Products and services are available only to eligible clients in permitted jurisdictions. Past performance is not
-            indicative of future results. Should you have any questions, please contact us using the details above.
+            Savoy Bank &amp; Trust is a privately held financial institution
+            licensed and regulated in The Bahamas. This website is for
+            informational purposes only and does not constitute financial,
+            investment, or legal advice. Products and services are available
+            only to eligible clients in permitted jurisdictions. Past
+            performance is not indicative of future results. Should you have any
+            questions, please contact us using the details above.
           </p>
-
         </div>
       </footer>
     </>

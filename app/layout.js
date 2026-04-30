@@ -27,13 +27,14 @@
 //   );
 // }
 
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 const BASE_URL = "https://www.savoybankandtrust.com"; // ← update to your real domain
 
@@ -47,9 +48,15 @@ export const metadata = {
   description:
     "Savoy Bank & Trust is a privately held financial institution in The Bahamas offering tailored banking, trust, and market services for discerning international clients.",
   keywords: [
-    "Savoy Bank", "Savoy Trust", "private banking Bahamas",
-    "international banking", "offshore banking", "trust services Bahamas",
-    "wealth management Bahamas", "fiduciary services", "private bank",
+    "Savoy Bank",
+    "Savoy Trust",
+    "private banking Bahamas",
+    "international banking",
+    "offshore banking",
+    "trust services Bahamas",
+    "wealth management Bahamas",
+    "fiduciary services",
+    "private bank",
   ],
   authors: [{ name: "Savoy Bank & Trust" }],
   creator: "Savoy Bank & Trust",
@@ -57,7 +64,12 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: { canonical: BASE_URL },
 
@@ -91,19 +103,26 @@ export const metadata = {
   },
 
   icons: {
-  icon: "/savoy-icon.ico",
-  shortcut: "/savoy-icon.ico",
-  apple: "/savoy-icon.ico",
-},
+    icon: "/savoy-icon.ico",
+    shortcut: "/savoy-icon.ico",
+    apple: "/savoy-icon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
       <head>
         <link rel="icon" href="/savoy-icon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <meta name="theme-color" content="#000000" />
         <script
           type="application/ld+json"
@@ -115,16 +134,18 @@ export default function RootLayout({ children }) {
               url: BASE_URL,
               logo: `${BASE_URL}/savoy-logo.png`,
               image: `${BASE_URL}/savoy-card.jpg`,
-              description: "A privately held financial institution in The Bahamas offering tailored banking, trust, and market services.",
-              address: { "@type": "PostalAddress", addressCountry: "BS", addressRegion: "The Bahamas" },
+              description:
+                "A privately held financial institution in The Bahamas offering tailored banking, trust, and market services.",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "BS",
+                addressRegion: "The Bahamas",
+              },
             }),
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
-  
-        {children}
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

@@ -234,7 +234,6 @@
 //   );
 // }
 
-
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -248,7 +247,10 @@ function useInView(threshold = 0.12) {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) { setInView(true); obs.disconnect(); }
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
       },
       { threshold },
     );
@@ -339,10 +341,16 @@ export default function SecondSection() {
             className="mb-6 tracking-widest"
             style={{ color: "rgb(255, 255, 255)", fontSize: "0.95rem" }}
           >
-            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+            <span
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            >
               SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
             </span>
-            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+            <span
+              style={{
+                fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+              }}
+            >
               Traditional Values. International Perspective
             </span>
           </p>
@@ -419,7 +427,10 @@ export default function SecondSection() {
           </div>
 
           {/* Pillars col */}
-          <div className="second-pillars-col flex flex-col pl-50" style={{ width: "56%", paddingRight: "3rem" }}>
+          <div
+            className="second-pillars-col flex flex-col pl-50"
+            style={{ width: "56%", paddingRight: "3rem" }}
+          >
             {pillars.map((text, i) => (
               <p
                 key={text}

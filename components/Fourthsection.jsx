@@ -99,7 +99,7 @@
 //           </h2> */}
 //           <h2
 //   className="font-light text-white mb-[76px] max-sm:mb-14"
-//   style={{ 
+//   style={{
 //     fontSize: 'clamp(1.4rem, 2.35vw, 2rem)',
 //     lineHeight: 1.0,
 //     // letterSpacing: "-0.01em",
@@ -136,19 +136,45 @@
 //   );
 // }
 
-
-'use client';
+"use client";
 
 const services = [
-  { description: 'Responsive day-to-day banking support delivered with the attention of a relationship-led institution.' },
-  { description: 'Secure digital access for convenient account visibility and transaction management.' },
-  { description: 'Access to custody and execution capabilities across a range of investment instruments.' },
-  { description: 'Liquidity solutions structured around current accounts, term deposits, and fiduciary deposits.' },
-  { description: 'Spot, forward, and swap solutions tailored to cross-border requirements.' },
-  { description: 'Trading and custody solutions for clients seeking additional diversification.' },
-  { description: 'Efficient movement of funds supported by attentive service and clear execution.' },
-  { description: 'Asset-backed credit solutions structured around eligible holdings.' },
-  { description: 'Additional solutions tailored to more specialized requirements.' },
+  {
+    description:
+      "Responsive day-to-day banking support delivered with the attention of a relationship-led institution.",
+  },
+  {
+    description:
+      "Secure digital access for convenient account visibility and transaction management.",
+  },
+  {
+    description:
+      "Access to custody and execution capabilities across a range of investment instruments.",
+  },
+  {
+    description:
+      "Liquidity solutions structured around current accounts, term deposits, and fiduciary deposits.",
+  },
+  {
+    description:
+      "Spot, forward, and swap solutions tailored to cross-border requirements.",
+  },
+  {
+    description:
+      "Trading and custody solutions for clients seeking additional diversification.",
+  },
+  {
+    description:
+      "Efficient movement of funds supported by attentive service and clear execution.",
+  },
+  {
+    description:
+      "Asset-backed credit solutions structured around eligible holdings.",
+  },
+  {
+    description:
+      "Additional solutions tailored to more specialized requirements.",
+  },
 ];
 
 export default function SavoyServices() {
@@ -176,21 +202,19 @@ export default function SavoyServices() {
         style={{
           fontFamily: "'Cormorant', Georgia, serif",
           backgroundImage: "url('/savoy-background.png')",
-          backgroundRepeat: 'repeat',
-          backgroundSize: 'auto',
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
         }}
       >
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="fourth-inner relative z-10 w-[38%] min-w-[320px] max-w-[550px] max-lg:w-[55%] max-sm:w-full max-sm:min-w-0 max-sm:max-w-none">
-
           <h2
             className="fourth-heading font-light text-white mb-[76px] max-sm:mb-14"
-            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.0,}}
+            style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.0 }}
           >
-            Savoy offers a focused range of banking and fiduciary
-            services designed to meet the needs of a diversified
-            international clientele.
+            Savoy offers a focused range of banking and fiduciary services
+            designed to meet the needs of a diversified international clientele.
           </h2>
 
           <ul className="fourth-service-list list-none p-0 m-0 space-y-16 max-sm:space-y-12">
@@ -199,8 +223,9 @@ export default function SavoyServices() {
                 <p
                   className="fourth-service-desc font-normal not-italic text-white max-w-[430px]"
                   style={{
-                    fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
-                    fontSize: 'clamp(1.0rem, 1.1vw, 1rem)',
+                    fontFamily:
+                      "'General Sans', 'Inter', system-ui, sans-serif",
+                    fontSize: "clamp(1.0rem, 1.1vw, 1rem)",
                     lineHeight: 1.65,
                     letterSpacing: "0.008em",
                   }}
@@ -210,7 +235,6 @@ export default function SavoyServices() {
               </li>
             ))}
           </ul>
-
         </div>
       </section>
     </>

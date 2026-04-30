@@ -80,7 +80,7 @@
 //           transitionTimingFunction: "ease-in-out",
 //         }}
 //       >
-//         {/* 
+//         {/*
 //           Replace the src below with your actual lighthouse video path.
 //           Place the video file in /public/lighthouse.mp4
 //           The video should be a dark, moody ocean/lighthouse clip.
@@ -143,10 +143,10 @@
 //         </div> */}
 
 //         <div className="flex items-center ">
-//           <img 
-//             src="/savoy-logo.png" 
-//             alt="Savoy Logo" 
-//             className="h-27 w-auto" 
+//           <img
+//             src="/savoy-logo.png"
+//             alt="Savoy Logo"
+//             className="h-27 w-auto"
 //           />
 
 //         </div>
@@ -193,7 +193,7 @@
 //         className="text-white tracking-widest uppercase mb-3"
 //         style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: "0.95rem", fontWeight: 300 }}
 //       >
-//         SAVOY BANK &amp; TRUST &nbsp;|&nbsp; 
+//         SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
 //         <span style={{ textTransform: "none", fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
 //           Tailored Banking &amp; Trust Services
 //         </span>
@@ -227,13 +227,10 @@
 //     <Thirdsection/>
 //     <FourthSection/>
 //     <BrandFooterSection/>
-    
-
 
 //    </div>
 //   );
 // }
-
 
 "use client";
 
@@ -245,9 +242,25 @@ import { useEffect, useRef, useState } from "react";
 
 function StarLogo({ className = "", size = 32 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path d="M50 2 L54 46 L98 50 L54 54 L50 98 L46 54 L2 50 L46 46 Z" fill="white" opacity="0.95" />
-      <path d="M50 15 L52.5 47.5 L85 50 L52.5 52.5 L50 85 L47.5 52.5 L15 50 L47.5 47.5 Z" fill="white" transform="rotate(45 50 50)" opacity="0.6" />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M50 2 L54 46 L98 50 L54 54 L50 98 L46 54 L2 50 L46 46 Z"
+        fill="white"
+        opacity="0.95"
+      />
+      <path
+        d="M50 15 L52.5 47.5 L85 50 L52.5 52.5 L50 85 L47.5 52.5 L15 50 L47.5 47.5 Z"
+        fill="white"
+        transform="rotate(45 50 50)"
+        opacity="0.6"
+      />
     </svg>
   );
 }
@@ -262,7 +275,12 @@ export default function Home() {
     const t2 = setTimeout(() => setPhase(2), 2800);
     const t3 = setTimeout(() => setPhase(3), 5200);
     const t4 = setTimeout(() => setPhase(4), 7000);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
   }, []);
 
   useEffect(() => {
@@ -271,7 +289,9 @@ export default function Home() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const navItems = ["ABOUT", "COMPANY OVERVIEW", "LEADERSHIP", "CONTACT US"];
@@ -422,51 +442,72 @@ export default function Home() {
         ))}
       </nav> */}
       {/* Mobile drawer nav */}
-<nav className={`mobile-nav${menuOpen ? " open" : ""}`} aria-hidden={!menuOpen}>
+      <nav
+        className={`mobile-nav${menuOpen ? " open" : ""}`}
+        aria-hidden={!menuOpen}
+      >
+        {/* ── Close button ── */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+          style={{
+            position: "absolute",
+            top: "1.5rem",
+            right: "1.5rem",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: "8px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "5px",
+            zIndex: 120,
+          }}
+        >
+          <span
+            style={{
+              display: "block",
+              width: "22px",
+              height: "1.5px",
+              background: "#fff",
+              transform: "translateY(3.25px) rotate(45deg)",
+              transition: "transform 0.3s ease",
+            }}
+          />
+          <span
+            style={{
+              display: "block",
+              width: "22px",
+              height: "1.5px",
+              background: "#fff",
+              transform: "translateY(-3.25px) rotate(-45deg)",
+              transition: "transform 0.3s ease",
+            }}
+          />
+        </button>
 
-  {/* ── Close button ── */}
-  <button
-    onClick={() => setMenuOpen(false)}
-    aria-label="Close menu"
-    style={{
-      position: "absolute",
-      top: "1.5rem",
-      right: "1.5rem",
-      background: "none",
-      border: "none",
-      cursor: "pointer",
-      padding: "8px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "5px",
-      zIndex: 120,
-    }}
-  >
-    <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transform: "translateY(3.25px) rotate(45deg)", transition: "transform 0.3s ease" }} />
-    <span style={{ display: "block", width: "22px", height: "1.5px", background: "#fff", transform: "translateY(-3.25px) rotate(-45deg)", transition: "transform 0.3s ease" }} />
-  </button>
+        {navItems.map((item) => (
+          <a key={item} href="#" onClick={() => setMenuOpen(false)}>
+            {item}
+          </a>
+        ))}
+      </nav>
 
-  {navItems.map((item) => (
-    <a key={item} href="#" onClick={() => setMenuOpen(false)}>{item}</a>
-  ))}
-</nav>
-
-{/* Tap-outside backdrop */}
-{menuOpen && (
-  <div
-    onClick={() => setMenuOpen(false)}
-    style={{
-      position: "fixed",
-      inset: 0,
-      zIndex: 99,
-    }}
-    aria-hidden="true"
-  />
-)}
+      {/* Tap-outside backdrop */}
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 99,
+          }}
+          aria-hidden="true"
+        />
+      )}
 
       <div>
         <div className="relative w-full min-h-screen bg-black overflow-hidden">
-
           {/* ── VIDEO LAYER — unchanged ── */}
           {/* <div
             className="absolute inset-0 transition-opacity"
@@ -485,65 +526,68 @@ export default function Home() {
           </div> */}
 
           {/* ── VIDEO LAYER — unchanged ── */}
-<div
-  className="absolute inset-0 transition-opacity"
-  style={{
-    opacity: phase === 1 ? 1 : phase === 2 ? 1 : phase >= 3 ? 0 : 0,
-    transitionDuration: phase === 1 ? "1800ms" : "2000ms",
-    transitionTimingFunction: "ease-in-out",
-  }}
->
-  <video
-    ref={videoRef}
-    className="w-full h-full object-cover"
-    autoPlay muted loop playsInline
-    src="/homebannervideo.mp4"
-  />
-</div>
+          <div
+            className="absolute inset-0 transition-opacity"
+            style={{
+              opacity: phase === 1 ? 1 : phase === 2 ? 1 : phase >= 3 ? 0 : 0,
+              transitionDuration: phase === 1 ? "1800ms" : "2000ms",
+              transitionTimingFunction: "ease-in-out",
+            }}
+          >
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              src="/homebannervideo.mp4"
+            />
+          </div>
 
-{/* ── LIGHTHOUSE IMAGE — fades in after video fades out (phase >= 3) ── */}
-<div
-  className="absolute inset-0 transition-opacity"
-  style={{
-    opacity: phase >= 3 ? 1 : 0,
-    transitionDuration: "3000ms",
-    transitionTimingFunction: "ease-in-out",
-  }}
->
-  <div
-    className="absolute lighthouse-wrap"
-    style={{
-      right: 0,
-      top: 0,
-      bottom: 0,
-      width: "55%",
-    }}
-  >
-    <img
-      src="/lighthouse-2.png"
-      alt="Lighthouse"
-      className="lighthouse-img"
-      style={{
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center top",
-        maskImage: `
+          {/* ── LIGHTHOUSE IMAGE — fades in after video fades out (phase >= 3) ── */}
+          <div
+            className="absolute inset-0 transition-opacity"
+            style={{
+              opacity: phase >= 3 ? 1 : 0,
+              transitionDuration: "3000ms",
+              transitionTimingFunction: "ease-in-out",
+            }}
+          >
+            <div
+              className="absolute lighthouse-wrap"
+              style={{
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: "55%",
+              }}
+            >
+              <img
+                src="/lighthouse-2.png"
+                alt="Lighthouse"
+                className="lighthouse-img"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  maskImage: `
           linear-gradient(to right, transparent 5%, black 50%),
           linear-gradient(to bottom, black 60%, transparent 100%),
           linear-gradient(to top, transparent 0%, black 45%)
         `,
-        WebkitMaskImage: `
+                  WebkitMaskImage: `
           linear-gradient(to right, transparent 5%, black 50%),
           linear-gradient(to bottom, black 60%, transparent 100%),
           linear-gradient(to top, transparent 0%, black 45%)
         `,
-        maskComposite: "intersect",
-        WebkitMaskComposite: "source-in",
-      }}
-    />
-  </div>
-</div>
+                  maskComposite: "intersect",
+                  WebkitMaskComposite: "source-in",
+                }}
+              />
+            </div>
+          </div>
 
           {/* ── HEADER — original layout, hamburger added for mobile ── */}
           <header
@@ -556,7 +600,11 @@ export default function Home() {
           >
             {/* Logo — exactly as original */}
             <div className="flex items-center">
-              <img src="/savoy-logo.png" alt="Savoy Logo" className="header-logo h-27 w-auto" />
+              <img
+                src="/savoy-logo.png"
+                alt="Savoy Logo"
+                className="header-logo h-27 w-auto"
+              />
             </div>
 
             {/* Desktop nav — exactly as original */}
@@ -572,7 +620,12 @@ export default function Home() {
                   key={item}
                   href="#"
                   className="text-white hover:text-white transition-colors text-xs tracking-widest uppercase"
-                  style={{ letterSpacing: "0.1em", fontSize: "0.8rem", fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}
+                  style={{
+                    letterSpacing: "0.1em",
+                    fontSize: "0.8rem",
+                    fontFamily:
+                      "'General Sans', 'Inter', system-ui, sans-serif",
+                  }}
                 >
                   {item}
                 </a>
@@ -586,9 +639,26 @@ export default function Home() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
             >
-              <span className="ham-line" style={menuOpen ? { transform: "translateY(6.5px) rotate(45deg)" } : {}} />
-              <span className="ham-line" style={menuOpen ? { opacity: 0 } : {}} />
-              <span className="ham-line" style={menuOpen ? { transform: "translateY(-6.5px) rotate(-45deg)" } : {}} />
+              <span
+                className="ham-line"
+                style={
+                  menuOpen
+                    ? { transform: "translateY(6.5px) rotate(45deg)" }
+                    : {}
+                }
+              />
+              <span
+                className="ham-line"
+                style={menuOpen ? { opacity: 0 } : {}}
+              />
+              <span
+                className="ham-line"
+                style={
+                  menuOpen
+                    ? { transform: "translateY(-6.5px) rotate(-45deg)" }
+                    : {}
+                }
+              />
             </button>
           </header>
 
@@ -603,10 +673,19 @@ export default function Home() {
           >
             <p
               className="text-white tracking-widest uppercase mb-3"
-              style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: "0.95rem", fontWeight: 300 }}
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+                fontSize: "0.95rem",
+                fontWeight: 300,
+              }}
             >
               SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
-              <span style={{ textTransform: "none", fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+              <span
+                style={{
+                  textTransform: "none",
+                  fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+                }}
+              >
                 Tailored Banking &amp; Trust Services
               </span>
             </p>
@@ -619,12 +698,11 @@ export default function Home() {
                 lineHeight: 1.0,
               }}
             >
-              Tailored banking, trust, and market services for clients
-              who value discretion, continuity, and clear guidance in
-              a complex international landscape.
+              Tailored banking, trust, and market services for clients who value
+              discretion, continuity, and clear guidance in a complex
+              international landscape.
             </h1>
           </div>
-
         </div>
 
         <SecondSection />

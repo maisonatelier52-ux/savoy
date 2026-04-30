@@ -148,7 +148,7 @@
 
 // export default function SavoyAbout() {
 //   return (
-//     <section 
+//     <section
 //       className="bg-black w-full min-h-screen pt-[33vh] pb-[53vh] pl-[5.1vw]"
 //       style={{
 //         fontFamily: "'Cormorant', Georgia, serif",
@@ -161,7 +161,7 @@
 //             Savoy Bank &amp; Trust
 //           </span>
 //           <span className="mx-[10px] font-light tracking-normal text-white/50">|</span>
-//           <span 
+//           <span
 //             className="font-light italic normal-case tracking-[0.04em] text-white/65"
 //             style={{ fontSize: "clamp(0.62rem, 0.75vw, 0.75rem)" }}
 //           >
@@ -169,26 +169,26 @@
 //           </span>
 //         </p> */}
 // <p className="flex items-center gap-0 mb-5 text-white uppercase tracking-[0.22em]">
-//   <span 
-//     className="font-bold" 
-//     style={{ 
+//   <span
+//     className="font-bold"
+//     style={{
 //       fontFamily: "'Cormorant', Georgia, serif",
 //       fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)",
 //     }}
 //   >
 //     Savoy Bank &amp; Trust
 //   </span>
-//   <span 
+//   <span
 //     className="mx-[10px] font-light tracking-normal text-white"
 //     style={{ fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)" }}
 //   >
-//     | 
+//     |
 //   </span>
-//   <span 
+//   <span
 //     className="font-medium normal-case tracking-[0.04em] text-white"
-//     style={{ 
+//     style={{
 //       fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
-//       fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)" 
+//       fontSize: "clamp(0.75rem, 0.9vw, 0.9rem)"
 //     }}
 //   >
 //     The Bahamas
@@ -196,7 +196,7 @@
 // </p>
 
 //         {/* Large italic heading */}
-//         <h1 
+//         <h1
 //           className="font-light text-white mb-9"
 //           style={{
 //             fontSize: "clamp(1.0rem, 2.4vw, 2.05rem)",
@@ -213,7 +213,7 @@
 //         </h1>
 
 //         {/* Supporting body copy */}
-//         <p 
+//         <p
 //   className="font-normal text-white max-w-[600px]"
 //   style={{
 //     fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
@@ -255,7 +255,7 @@
 //   );
 // }
 
-'use client';
+"use client";
 
 export default function SavoyAbout() {
   return (
@@ -282,24 +282,29 @@ export default function SavoyAbout() {
         style={{ fontFamily: "'Cormorant', Georgia, serif" }}
       >
         <div className="third-inner w-[44%] min-w-[320px] max-w-[660px]">
-
           {/* Eyebrow — original */}
           <p className="third-eyebrow flex items-center gap-0 mb-5 text-white uppercase tracking-[0.22em]">
             <span
               className="font-bold"
-              style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "0.99rem" }}
+              style={{
+                fontFamily: "'Cormorant', Georgia, serif",
+                fontSize: "0.99rem",
+              }}
             >
               Savoy Bank &amp; Trust
             </span>
             <span
               className="mx-[10px] font-light tracking-normal text-white"
-              style={{ fontSize: "0.99rem"}}
+              style={{ fontSize: "0.99rem" }}
             >
               |
             </span>
             <span
               className="font-medium normal-case tracking-[0.04em] text-white"
-              style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif", fontSize: "0.99rem" }}
+              style={{
+                fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+                fontSize: "0.99rem",
+              }}
             >
               The Bahamas
             </span>
@@ -310,12 +315,11 @@ export default function SavoyAbout() {
             className="third-heading font-light text-white mb-9"
             style={{ fontSize: "clamp(1.8rem, 2vw, 1.3rem)", lineHeight: 1.0 }}
           >
-            Savoy Bank &amp; Trust is a privately held financial
-            institution in The Bahamas, serving clients through
-            tailored banking and trust services. Its culture draws
-            on the discipline of private banking while maintaining
-            the responsiveness required by modern international
-            clients.
+            Savoy Bank &amp; Trust is a privately held financial institution in
+            The Bahamas, serving clients through tailored banking and trust
+            services. Its culture draws on the discipline of private banking
+            while maintaining the responsiveness required by modern
+            international clients.
           </h1>
 
           {/* Body — original */}
@@ -332,7 +336,6 @@ export default function SavoyAbout() {
             discretion, and continuity. The result is a banking experience
             designed to feel personal, thoughtful, and dependable over time.
           </p>
-
         </div>
       </section>
     </>
