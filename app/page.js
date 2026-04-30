@@ -359,6 +359,60 @@ export default function Home() {
           .hero-bottom h1 { font-size: 1.1rem !important; max-width: 100% !important; }
           .hero-bottom p { font-size: 0.72rem !important; }
         }
+          /* ── Lighthouse responsive ── */
+.lighthouse-wrap {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 55%;
+}
+
+.lighthouse-img {
+  mask-image:
+    linear-gradient(to right, transparent 5%, black 50%),
+    linear-gradient(to top, transparent 0%, black 45%);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 5%, black 50%),
+    linear-gradient(to top, transparent 0%, black 45%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* Tablet — image wider, left fade starts earlier */
+@media (max-width: 1024px) {
+  .lighthouse-wrap {
+    width: 70% !important;
+  }
+  .lighthouse-img {
+    mask-image:
+      linear-gradient(to right, transparent 0%, black 40%),
+      linear-gradient(to top, transparent 0%, black 45%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, black 40%),
+      linear-gradient(to top, transparent 0%, black 45%);
+  }
+}
+
+/* Mobile — full width, text overlays on top */
+@media (max-width: 640px) {
+  .lighthouse-wrap {
+    width: 100% !important;
+    top: 0 !important;
+  }
+  .lighthouse-img {
+    mask-image:
+      linear-gradient(to right, transparent 0%, black 30%),
+      linear-gradient(to top, transparent 0%, black 40%),
+      linear-gradient(to bottom, transparent 0%, black 30%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, black 30%),
+      linear-gradient(to top, transparent 0%, black 40%),
+      linear-gradient(to bottom, transparent 0%, black 30%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+    object-position: right top !important;
+  }
+}
       `}</style>
 
       {/* Mobile drawer nav */}
@@ -456,12 +510,11 @@ export default function Home() {
     transitionTimingFunction: "ease-in-out",
   }}
 >
-  {/* Right-side lighthouse image - Strong top fade to black */}
   <div
-    className="absolute"
+    className="absolute lighthouse-wrap"
     style={{
       right: 0,
-      top: 0,                    // Start from the very top
+      top: 0,
       bottom: 0,
       width: "55%",
     }}
@@ -469,22 +522,24 @@ export default function Home() {
     <img
       src="/lighthouse-2.png"
       alt="Lighthouse"
+      className="lighthouse-img"
       style={{
         width: "100%",
         height: "100%",
         objectFit: "cover",
         objectPosition: "center top",
-        // Improved mask: soft right fade + strong smooth top fade
         maskImage: `
           linear-gradient(to right, transparent 5%, black 50%),
-          linear-gradient(to top, transparent 0%, black 50%)
+          linear-gradient(to bottom, black 60%, transparent 100%),
+          linear-gradient(to top, transparent 0%, black 45%)
         `,
         WebkitMaskImage: `
           linear-gradient(to right, transparent 5%, black 50%),
-          linear-gradient(to top, transparent 0%, black 50%)
+          linear-gradient(to bottom, black 60%, transparent 100%),
+          linear-gradient(to top, transparent 0%, black 45%)
         `,
         maskComposite: "intersect",
-        WebkitMaskComposite: "intersect",
+        WebkitMaskComposite: "source-in",
       }}
     />
   </div>
