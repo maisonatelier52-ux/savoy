@@ -177,10 +177,10 @@ export default function BrandFooterSection() {
         {/* Lighthouse full-width image with dark overlay */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/lighthouse-footer.png"
+            src="/lighthouse-footer2.png"
             alt="Lighthouse"
             fill
-            style={{ objectFit: "cover", objectPosition: "center" }}
+            style={{ objectFit: "fill", objectPosition: "center" }}
             priority={false}
           />
           {/* Dark gradient overlay — stronger at bottom so text reads clearly */}
@@ -188,7 +188,7 @@ export default function BrandFooterSection() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.72) 60%, rgba(8,8,8,0.96) 100%)",
+                "linear-gradient(to bottom, rgba(8, 8, 8, 0.3) 0%, rgba(8, 8, 8, 0.35) 60%, rgba(8, 8, 8, 0.34) 100%)",
             }}
           />
         </div>
@@ -259,8 +259,8 @@ export default function BrandFooterSection() {
 
       {/* ── 2. FULL FOOTER (EGS-style) ── */}
       <footer
-        className="w-full bg-[#080808] text-white"
-        style={{ fontFamily: "Avenir, 'Nunito Sans', sans-serif" }}
+        className="w-full bg-black text-white"
+        style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}
       >
         {/* Top divider */}
         <div className="w-full h-px bg-white/10" />
@@ -350,7 +350,7 @@ export default function BrandFooterSection() {
           </div>
 
           {/* Disclaimer */}
-          <p
+          {/* <p
             className="text-[12px] text-white leading-relaxed"
             style={{ fontWeight: 100, letterSpacing: "0.01em" }}
           >
@@ -361,7 +361,14 @@ export default function BrandFooterSection() {
             only to eligible clients in permitted jurisdictions. Past
             performance is not indicative of future results. Should you have any
             questions, please contact us using the details above.
+          </p> */}
+          <p
+            className="text-[12px] text-white leading-relaxed"
+            style={{ fontWeight: 100, letterSpacing: "0.01em" }}
+          >
+            Savoy Bank & Trust is a licensed financial institution in The Bahamas. This site is for informational purposes only and not financial, legal, or investment advice. Services are offered to eligible clients only. Past performance does not guarantee future results.
           </p>
+
         </div>
       </footer>
     </>
