@@ -331,9 +331,16 @@ export default function SecondSection() {
         {/* Background — unchanged */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `url("/savoy-background.png")` }}
+          // style={{ backgroundImage: `url("/savoy-background2.png")` }}
+          style={{
+            fontFamily: "'Cormorant', Georgia, serif",
+            backgroundImage: "url('/savoy-background2.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/50" />
 
         {/* ── Top text block — original styles ── */}
         <div className="second-top-block relative z-10 pl-18 pt-25 pb-4 max-w-[660px]">

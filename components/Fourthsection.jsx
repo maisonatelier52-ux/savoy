@@ -199,14 +199,21 @@ export default function SavoyServices() {
 
       <section
         className="fourth-section-root relative w-full min-h-screen bg-[#0c0c0c] text-white pt-[15vh] pb-[128px] px-[6.5vw] max-lg:pt-20 max-lg:pb-24 max-lg:px-[5vw] max-sm:px-6 max-sm:pt-[60px] max-sm:pb-[72px]"
+        // style={{
+        //   fontFamily: "'Cormorant', Georgia, serif",
+        //   backgroundImage: "url('/savoy-background2.png')",
+        //   backgroundRepeat: "repeat",
+        //   backgroundSize: "auto",
+        // }}
         style={{
-          fontFamily: "'Cormorant', Georgia, serif",
-          backgroundImage: "url('/savoy-background.png')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "auto",
-        }}
+            fontFamily: "'Cormorant', Georgia, serif",
+            backgroundImage: "url('/savoy-background2.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
       >
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="fourth-inner relative z-10 w-[38%] min-w-[320px] max-w-[550px] max-lg:w-[55%] max-sm:w-full max-sm:min-w-0 max-sm:max-w-none">
           <h2
@@ -221,13 +228,13 @@ export default function SavoyServices() {
             {services.map((service, i) => (
               <li key={i}>
                 <p
-                  className="fourth-service-desc font-normal not-italic text-white max-w-[430px]"
+                  className="fourth-service-desc font-normal not-italic text-white max-w-[530px]"
                   style={{
                     fontFamily:
                       "'General Sans', 'Inter', system-ui, sans-serif",
                     fontSize: "clamp(1.0rem, 1.1vw, 1rem)",
-                    lineHeight: 1.65,
-                    letterSpacing: "0.008em",
+                    lineHeight: 1.0,
+                    // letterSpacing: "0.008em",
                   }}
                 >
                   {service.description}
