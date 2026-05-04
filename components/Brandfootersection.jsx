@@ -263,7 +263,7 @@ export default function BrandFooterSection() {
         style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}
       >
         {/* Top divider */}
-        <div className="w-full h-px bg-white/10" />
+        <div className="w-full h-px bg-black" />
 
         <div className="w-[82%] mx-auto py-16 flex flex-col gap-10">
           {/* Row 1 — Logos + Address + Contact */}
