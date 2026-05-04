@@ -232,7 +232,8 @@ export default function SavoyServices() {
                   style={{
                     fontFamily:
                       "'General Sans', 'Inter', system-ui, sans-serif",
-                    fontSize: "clamp(1.0rem, 1.1vw, 1rem)",
+                    // fontSize: "clamp(1.0rem, 1.1vw, 1rem)",
+                    fontSize: "clamp(0.8rem, 1vw, 0.95rem)",
                     lineHeight: 1.0,
                     // letterSpacing: "0.008em",
                   }}
