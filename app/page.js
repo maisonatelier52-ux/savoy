@@ -1012,7 +1012,7 @@ export default function Home() {
               playsInline
               // ⚠️  NO `loop` — we need the ended event
               onEnded={handleVideoEnd}
-              src="/homebannervideo.mp4"
+              src="/homebannervideo2.mp4"
             />
           </div>
 
