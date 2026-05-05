@@ -736,6 +736,12 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      setIsMobile(window.innerWidth <= 768);
+    }, []);
+
   const videoRef = useRef(null);
   // Track whether we already handled the end so fallback doesn't double-fire
   const endHandled = useRef(false);
@@ -1012,7 +1018,8 @@ export default function Home() {
               playsInline
               // ⚠️  NO `loop` — we need the ended event
               onEnded={handleVideoEnd}
-              src="/homebannervideo2.mp4"
+              // src="/homebannervideo2.mp4"
+              src={isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo2.mp4"}
             />
           </div>
 
@@ -1027,10 +1034,10 @@ export default function Home() {
           >
             <div
               className="absolute lighthouse-wrap"
-              style={{ right: 0, top: 0, bottom: 0, width: "55%" }}
+              style={{ right: 0, top: '10%', bottom: 0, width: "70%" }}
             >
               <img
-                src="/lighthouse-2.png"
+                src="/savoy-12.png"
                 alt="Lighthouse"
                 className="lighthouse-img"
                 style={{
