@@ -269,7 +269,6 @@ export default function SavoyServices() {
                   style={{
                     fontFamily:
                       "'General Sans', 'Inter', system-ui, sans-serif",
-                    // fontSize: "clamp(0.9rem, 1.1vw, 1.02rem)",
                     fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
                     fontWeight: hoveredIndex === i ? 500 : 300,
                     lineHeight: 1.65,
