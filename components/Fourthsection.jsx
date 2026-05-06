@@ -65,7 +65,7 @@ export default function SavoyServices() {
         .fourth-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(0, 0, 0, 0.50);
+          background: rgba(0, 0, 0, 0.20);
           z-index: 0;
           pointer-events: none;
         }

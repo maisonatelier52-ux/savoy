@@ -622,7 +622,7 @@ export default function SecondSection() {
             backgroundPosition: "center",
           }}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/20" />
 
         {/* ── Top block: text LEFT + image RIGHT ── */}
         <div
