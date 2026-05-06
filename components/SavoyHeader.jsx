@@ -107,7 +107,7 @@ export default function SavoyHeader({ phase }) {
               className="text-white hover:text-white transition-colors text-xs tracking-widest uppercase"
               style={{
                 letterSpacing: "0.1em",
-                fontSize: "0.8rem",
+                fontSize: "0.7rem",
                 fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
               }}
             >
