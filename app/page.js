@@ -644,7 +644,8 @@ export default function Home() {
 
         {/* Bottom Content */}
         <div
-          className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-20 pb-14"
+          // className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-20 pb-14"
+          className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-6 pr-6 pb-10 md:pl-20 md:pr-0 md:pb-14"
           style={{
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",

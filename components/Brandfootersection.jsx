@@ -376,30 +376,233 @@
 //   );
 // }
 
+// "use client";
+
+// import { useEffect, useRef, useState } from "react";
+// import Image from "next/image";
+
+// export default function BrandFooterSection() {
+//   const sectionRef = useRef(null);
+//   const hasAnimated = useRef(false);
+//   const [scale, setScale] = useState(1.55);
+//   const [opacity, setOpacity] = useState(0.45);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (hasAnimated.current) return;
+
+//       const el = sectionRef.current;
+//       if (!el) return;
+
+//       const rect = el.getBoundingClientRect();
+//       const windowH = window.innerHeight;
+
+//       const progress = Math.min(
+//         Math.max((windowH - rect.top) / (windowH + rect.height * 0.5), 0),
+//         1,
+//       );
+
+//       if (progress >= 0.99) {
+//         setScale(1);
+//         setOpacity(1);
+//         hasAnimated.current = true;
+//         window.removeEventListener("scroll", handleScroll);
+//         return;
+//       }
+
+//       setScale(1.55 - progress * 0.55);
+//       setOpacity(0.45 + progress * 0.55);
+//     };
+
+//     window.addEventListener("scroll", handleScroll, { passive: true });
+//     handleScroll();
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   return (
+//     <>
+//       <style>{`
+//         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+
+//         @media (max-width: 640px) {
+//           .footer-logo-img { width: 52px !important; height: 52px !important; }
+//           .footer-wordmark { font-size: 3rem !important; }
+//           .footer-sub { padding-left: 3.5rem !important; font-size: 0.5rem !important; }
+//           .lighthouse-side { display: none !important; }
+//         }
+//       `}</style>
+
+//       {/* BRAND REVEAL SECTION */}
+//       <section
+//         ref={sectionRef}
+//         className="relative w-full bg-black flex flex-col items-center justify-center overflow-hidden"
+//         style={{ minHeight: "100vh" }}
+//       >
+//         {/* Lighthouse - Right Side */}
+//         <div
+//           className="lighthouse-side absolute right-0 top-0 h-full"
+//           style={{ width: "50%", pointerEvents: "none" }}
+//         >
+//           <Image
+//             src="/lighthouse-footer3.png"
+//             alt="Lighthouse"
+//             fill
+//             style={{
+//               objectFit: "fill",
+//               objectPosition: "right center",
+//             }}
+//             priority={false}
+//           />
+
+//           {/* Strong fade to pure black */}
+//           <div
+//             className="absolute inset-0"
+//             style={{
+//               background: "linear-gradient(to right, #000000 0%, transparent 40%)",
+//             }}
+//           />
+//         </div>
+
+//         {/* Scroll Animated Logo */}
+//         <div
+//           className="relative z-10 flex flex-col items-center"
+//           style={{
+//             transform: `scale(${scale})`,
+//             opacity: opacity,
+//             willChange: "transform, opacity",
+//             marginRight: "55%", // Balance with lighthouse on right
+//           }}
+//         >
+//           <div className="flex items-center" style={{ gap: "1.1rem" }}>
+//             <Image
+//               src="/logo-savoy.png"
+//               alt="Savoy"
+//               width={90}
+//               height={90}
+//               className="footer-logo-img"
+//             />
+//             <span
+//               className="footer-wordmark text-7xl text-white"
+//               style={{
+//                 fontFamily: "'Cormorant Garamond', Georgia, serif",
+//                 fontWeight: 400,
+//                 letterSpacing: "0.02em",
+//                 lineHeight: 1,
+//               }}
+//             >
+//               SAVOY
+//             </span>
+//           </div>
+
+//           <p
+//             className="footer-sub text-[12px] text-white pl-20"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', Georgia, serif",
+//               letterSpacing: "0.04em",
+//               fontWeight: 300,
+//             }}
+//           >
+//             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+//             <em style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+//               The Bahamas
+//             </em>
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* FULL FOOTER */}
+//       <footer
+//         className="w-full bg-black text-white"
+//         style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}
+//       >
+//         <div className="w-full h-px bg-black" />
+
+//         <div className="w-[82%] mx-auto py-16 flex flex-col gap-10">
+//           <div className="flex items-start justify-between gap-10 flex-wrap">
+//             <div className="flex flex-col gap-3">
+//               <Image
+//                 src="/logo-savoy.png"
+//                 alt="Savoy Logo"
+//                 width={48}
+//                 height={48}
+//                 style={{ filter: "brightness(0) invert(1)" }}
+//               />
+//               <p className="text-[12px] text-white mt-1 uppercase tracking-widest" style={{ fontWeight: 100 }}>
+//                 Savoy Bank &amp; Trust
+//               </p>
+//             </div>
+
+//             <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100, maxWidth: "260px" }}>
+//               <p className="uppercase tracking-widest text-[13px] mb-1">Registered Office</p>
+//               <p>Savoy Bank &amp; Trust</p>
+//               <p>Nassau, New Providence</p>
+//               <p>The Bahamas</p>
+//             </div>
+
+//             <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100 }}>
+//               <p className="uppercase tracking-widest text-[13px] mb-1">Contact</p>
+//               <a href="mailto:info@savoybankandtrust.com" className="hover:text-white transition-colors">
+//                 info@savoybankandtrust.com
+//               </a>
+//               <a href="tel:+12425000000" className="hover:text-white transition-colors mt-1">
+//                 +1 (242) 500-0000
+//               </a>
+//             </div>
+//           </div>
+
+//           <div className="w-full h-px bg-white/10" />
+
+//           <div className="flex items-center justify-between flex-wrap gap-4">
+//             <div className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-white" style={{ fontWeight: 100 }}>
+//               <a href="#" className="hover:text-white">Terms of Use</a>
+//               <a href="#" className="hover:text-white">Privacy Policy</a>
+//               <a href="#" className="hover:text-white">Cookies Policy</a>
+//               <a href="#" className="hover:text-white">Risk Disclosures</a>
+//             </div>
+//             <p className="text-[12px] text-white" style={{ fontWeight: 100 }}>
+//               © {new Date().getFullYear()} Savoy Bank &amp; Trust. All rights reserved.
+//             </p>
+//           </div>
+
+//           <p className="text-[12px] text-white leading-relaxed" style={{ fontWeight: 100, letterSpacing: "0.01em" }}>
+//             Savoy Bank & Trust is a licensed financial institution in The Bahamas. This site is for informational purposes only and not financial, legal, or investment advice. Services are offered to eligible clients only. Past performance does not guarantee future results.
+//           </p>
+//         </div>
+//       </footer>
+//     </>
+//   );
+// }
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+// Only font import stays — Tailwind can't do @import
+const fontStyle = `
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+`;
+
+const serif = "'Cormorant Garamond', Georgia, serif";
+const sans  = "'General Sans', 'Inter', system-ui, sans-serif";
+
 export default function BrandFooterSection() {
-  const sectionRef = useRef(null);
+  const sectionRef  = useRef(null);
   const hasAnimated = useRef(false);
-  const [scale, setScale] = useState(1.55);
+  const [scale,   setScale]   = useState(1.55);
   const [opacity, setOpacity] = useState(0.45);
 
   useEffect(() => {
     const handleScroll = () => {
       if (hasAnimated.current) return;
-
       const el = sectionRef.current;
       if (!el) return;
 
-      const rect = el.getBoundingClientRect();
-      const windowH = window.innerHeight;
-
+      const rect     = el.getBoundingClientRect();
+      const windowH  = window.innerHeight;
       const progress = Math.min(
         Math.max((windowH - rect.top) / (windowH + rect.height * 0.5), 0),
-        1,
+        1
       );
 
       if (progress >= 0.99) {
@@ -421,104 +624,103 @@ export default function BrandFooterSection() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+      <style>{fontStyle}</style>
 
-        @media (max-width: 640px) {
-          .footer-logo-img { width: 52px !important; height: 52px !important; }
-          .footer-wordmark { font-size: 3rem !important; }
-          .footer-sub { padding-left: 3.5rem !important; font-size: 0.5rem !important; }
-          .lighthouse-side { display: none !important; }
-        }
-      `}</style>
+      {/* ── BRAND REVEAL SECTION ──────────────────────────── */}
 
-      {/* BRAND REVEAL SECTION */}
-      <section
-        ref={sectionRef}
-        className="relative w-full bg-black flex flex-col items-center justify-center overflow-hidden"
-        style={{ minHeight: "100vh" }}
-      >
-        {/* Lighthouse - Right Side */}
-        <div
-          className="lighthouse-side absolute right-0 top-0 h-full"
-          style={{ width: "50%", pointerEvents: "none" }}
-        >
+      {/* ── MOBILE layout: image on top, logo below ── */}
+      <section ref={sectionRef} className="block md:hidden w-full bg-black overflow-hidden">
+        {/* Lighthouse image — full width, fitted */}
+        <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
           <Image
             src="/lighthouse-footer3.png"
             alt="Lighthouse"
             fill
-            style={{
-              objectFit: "fill",
-              objectPosition: "right center",
-            }}
+            style={{ objectFit: "cover", objectPosition: "center top" }}
             priority={false}
           />
-
-          {/* Strong fade to pure black */}
+          {/* Fade bottom edge into black */}
           <div
             className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to right, #000000 0%, transparent 40%)",
-            }}
+            style={{ background: "linear-gradient(to bottom, transparent 55%, #000000 100%)" }}
           />
         </div>
 
-        {/* Scroll Animated Logo */}
+        {/* Logo below image */}
         <div
-          className="relative z-10 flex flex-col items-center"
-          style={{
-            transform: `scale(${scale})`,
-            opacity: opacity,
-            willChange: "transform, opacity",
-            marginRight: "55%", // Balance with lighthouse on right
-          }}
+          className="flex flex-col items-center pb-16 -mt-10 relative z-10"
+          style={{ opacity, transform: `scale(${scale})`, willChange: "transform, opacity" }}
         >
-          <div className="flex items-center" style={{ gap: "1.1rem" }}>
-            <Image
-              src="/logo-savoy.png"
-              alt="Savoy"
-              width={90}
-              height={90}
-              className="footer-logo-img"
-            />
+          <div className="flex items-center gap-4">
+            <Image src="/logo-savoy.png" alt="Savoy" width={60} height={60} />
             <span
-              className="footer-wordmark text-7xl text-white"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: 400,
-                letterSpacing: "0.02em",
-                lineHeight: 1,
-              }}
+              className="text-5xl text-white"
+              style={{ fontFamily: serif, fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1 }}
             >
               SAVOY
             </span>
           </div>
-
           <p
-            className="footer-sub text-[12px] text-white pl-20"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              letterSpacing: "0.04em",
-              fontWeight: 300,
-            }}
+            className="text-[0.6rem] text-white pl-14 mt-1"
+            style={{ fontFamily: serif, letterSpacing: "0.04em", fontWeight: 300 }}
           >
             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
-            <em style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
-              The Bahamas
-            </em>
+            <em style={{ fontFamily: sans }}>The Bahamas</em>
           </p>
         </div>
       </section>
 
-      {/* FULL FOOTER */}
-      <footer
-        className="w-full bg-black text-white"
-        style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}
-      >
+      {/* ── DESKTOP layout: logo left, lighthouse right (unchanged) ── */}
+      <section className="hidden md:flex relative w-full bg-black flex-col items-center justify-center overflow-hidden min-h-screen">
+        {/* Lighthouse — right side */}
+        <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none">
+          <Image
+            src="/lighthouse-footer3.png"
+            alt="Lighthouse"
+            fill
+            style={{ objectFit: "fill", objectPosition: "right center" }}
+            priority={false}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, #000000 0%, transparent 40%)" }}
+          />
+        </div>
+
+        {/* Scroll-animated logo */}
+        <div
+          className="relative z-10 flex flex-col items-center mr-[55%]"
+          style={{ transform: `scale(${scale})`, opacity, willChange: "transform, opacity" }}
+        >
+          <div className="flex items-center gap-4">
+            <Image src="/logo-savoy.png" alt="Savoy" width={90} height={90} />
+            <span
+              className="text-7xl text-white"
+              style={{ fontFamily: serif, fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1 }}
+            >
+              SAVOY
+            </span>
+          </div>
+          <p
+            className="text-[12px] text-white pl-20 mt-1"
+            style={{ fontFamily: serif, letterSpacing: "0.04em", fontWeight: 300 }}
+          >
+            SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+            <em style={{ fontFamily: sans }}>The Bahamas</em>
+          </p>
+        </div>
+      </section>
+
+      {/* ── FULL FOOTER ───────────────────────────────────── */}
+      <footer className="w-full bg-black text-white" style={{ fontFamily: sans }}>
         <div className="w-full h-px bg-black" />
 
         <div className="w-[82%] mx-auto py-16 flex flex-col gap-10">
+
+          {/* Top row */}
           <div className="flex items-start justify-between gap-10 flex-wrap">
+
+            {/* Logo + name */}
             <div className="flex flex-col gap-3">
               <Image
                 src="/logo-savoy.png"
@@ -527,24 +729,26 @@ export default function BrandFooterSection() {
                 height={48}
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-              <p className="text-[12px] text-white mt-1 uppercase tracking-widest" style={{ fontWeight: 100 }}>
+              <p className="text-xs text-white mt-1 uppercase tracking-widest font-thin">
                 Savoy Bank &amp; Trust
               </p>
             </div>
 
-            <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100, maxWidth: "260px" }}>
+            {/* Registered office */}
+            <div className="flex flex-col gap-1 text-xs text-white font-thin max-w-[260px]">
               <p className="uppercase tracking-widest text-[13px] mb-1">Registered Office</p>
               <p>Savoy Bank &amp; Trust</p>
               <p>Nassau, New Providence</p>
               <p>The Bahamas</p>
             </div>
 
-            <div className="flex flex-col gap-1 text-[12px] text-white" style={{ fontWeight: 100 }}>
+            {/* Contact */}
+            <div className="flex flex-col gap-1 text-xs text-white font-thin">
               <p className="uppercase tracking-widest text-[13px] mb-1">Contact</p>
-              <a href="mailto:info@savoybankandtrust.com" className="hover:text-white transition-colors">
+              <a href="mailto:info@savoybankandtrust.com" className="hover:text-white/80 transition-colors no-underline">
                 info@savoybankandtrust.com
               </a>
-              <a href="tel:+12425000000" className="hover:text-white transition-colors mt-1">
+              <a href="tel:+12425000000" className="hover:text-white/80 transition-colors no-underline mt-1">
                 +1 (242) 500-0000
               </a>
             </div>
@@ -552,21 +756,26 @@ export default function BrandFooterSection() {
 
           <div className="w-full h-px bg-white/10" />
 
+          {/* Links + copyright */}
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-white" style={{ fontWeight: 100 }}>
-              <a href="#" className="hover:text-white">Terms of Use</a>
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Cookies Policy</a>
-              <a href="#" className="hover:text-white">Risk Disclosures</a>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white font-thin">
+              <a href="#" className="hover:text-white/80 transition-colors no-underline">Terms of Use</a>
+              <a href="#" className="hover:text-white/80 transition-colors no-underline">Privacy Policy</a>
+              <a href="#" className="hover:text-white/80 transition-colors no-underline">Cookies Policy</a>
+              <a href="#" className="hover:text-white/80 transition-colors no-underline">Risk Disclosures</a>
             </div>
-            <p className="text-[12px] text-white" style={{ fontWeight: 100 }}>
+            <p className="text-xs text-white font-thin">
               © {new Date().getFullYear()} Savoy Bank &amp; Trust. All rights reserved.
             </p>
           </div>
 
-          <p className="text-[12px] text-white leading-relaxed" style={{ fontWeight: 100, letterSpacing: "0.01em" }}>
-            Savoy Bank & Trust is a licensed financial institution in The Bahamas. This site is for informational purposes only and not financial, legal, or investment advice. Services are offered to eligible clients only. Past performance does not guarantee future results.
+          {/* Disclaimer */}
+          <p className="text-xs text-white font-thin leading-relaxed" style={{ letterSpacing: "0.01em" }}>
+            Savoy Bank &amp; Trust is a licensed financial institution in The Bahamas. This site is for
+            informational purposes only and not financial, legal, or investment advice. Services are
+            offered to eligible clients only. Past performance does not guarantee future results.
           </p>
+
         </div>
       </footer>
     </>
