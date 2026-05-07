@@ -109,17 +109,17 @@ export default function About() {
           {/* Savoy icon — large spinning watermark, right side desktop */}
           <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none select-none">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div  style={{ width:"min(560px,44vw)", height:"min(460px,44vw)", position:"relative" }}>
-                <Image src="/savoy-icon.ico" alt="" fill style={{ objectFit:"contain", opacity:0.06 }} />
+              <div  style={{ width:"min(660px,44vw)", height:"min(560px,44vw)", position:"relative" }}>
+                <Image src="/savoy-1.png" alt="" fill style={{ objectFit:"contain", opacity:0.09 }} />
               </div>
             </div>
-            <div className="absolute inset-0" style={{ background:"linear-gradient(to right,#000 0%,transparent 40%)" }} />
+            <div className="absolute inset-0" style={{ background:"linear-gradient(to right,#000 0%,transparent 0%)" }} />
           </div>
 
           {/* Mobile subtle icon */}
           <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <div  style={{ width:"260px", height:"260px", position:"relative" }}>
-              <Image src="/savoy-icon.ico" alt="" fill style={{ objectFit:"contain", opacity:0.04 }} />
+            <div  style={{ width:"460px", height:"560px", position:"relative" }}>
+              <Image src="/savoy-1.png" alt="" fill style={{ objectFit:"contain", opacity:0.09 }} />
             </div>
           </div>
 
@@ -198,9 +198,9 @@ export default function About() {
             <div style={fadeUp(valuesInView)}>
               <Label>Our Values</Label>
             </div>
-            <div style={fadeRight(valuesInView,"0.1s")}>
+            {/* <div style={fadeRight(valuesInView,"0.1s")}>
               <Image src="/savoy-logo.png" alt="Savoy" width={32} height={32} className="opacity-18" />
-            </div>
+            </div> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20">
@@ -231,9 +231,9 @@ export default function About() {
         <section ref={milestoneRef} className="relative py-24 px-6 md:px-20 overflow-hidden">
           {/* Icon watermark right */}
           <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
-               style={{ width:"380px", height:"380px", marginRight:"-90px", position:"absolute" }}>
-            <div className="icon-spin w-full h-full relative">
-              <Image src="/savoy-logo.png" alt="" fill style={{ objectFit:"contain", opacity:0.035 }} />
+               style={{ width:"480px", height:"580px", marginRight:"70px", position:"absolute" }}>
+            <div className=" w-full h-full relative">
+              <Image src="/savoy-2.png" alt="" fill style={{ objectFit:"contain", opacity:0.50 }} />
             </div>
           </div>
 
@@ -313,13 +313,13 @@ export default function About() {
 
             {/* Savoy-logo large spin — desktop only */}
             <div style={fadeRight(locationInView,"0.15s")} className="hidden md:flex justify-center items-center">
-              <div className="relative icon-spin" style={{ width:"300px", height:"300px" }}>
+              <div className="relative" style={{ width:"600px", height:"700px" }}>
                 <Image
-                  src="/savoy-logo.png"
+                  src="/savoy-3.png"
                   alt="Savoy"
                   fill
                   style={{
-                    objectFit:"contain", opacity:0.1,
+                    objectFit:"contain", opacity:0.50,
                     maskImage:"radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
                     WebkitMaskImage:"radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
                   }}
@@ -333,7 +333,7 @@ export default function About() {
 
         {/* ══ QUOTE ═════════════════════════════════════════════════ */}
         <section className="py-20 px-6 md:px-20 flex flex-col items-center text-center">
-          <Image src="/savoy-logo.png" alt="Savoy" width={36} height={36} className="opacity-18 mb-8" />
+          {/* <Image src="/savoy-logo.png" alt="Savoy" width={36} height={36} className="opacity-18 mb-8" /> */}
           <p
             style={{ fontFamily:serif, fontSize:"clamp(1.2rem,2.2vw,2rem)", fontWeight:300, fontStyle:"italic", lineHeight:1.6 }}
             className="text-white/50 max-w-2xl"

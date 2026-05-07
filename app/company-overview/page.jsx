@@ -275,11 +275,11 @@ export default function CompanyOverview() {
               fill
               style={{
                 objectFit: "contain",
-                objectPosition: "right top",
-                opacity: 0.08,
-                maskImage: "linear-gradient(to left,black 15%,transparent 85%)",
-                WebkitMaskImage:
-                  "linear-gradient(to left,black 15%,transparent 85%)",
+                objectPosition: "left top",
+                opacity: 0.25,
+                // maskImage: "linear-gradient(to left,black 15%,transparent 85%)",
+                // WebkitMaskImage:
+                //   "linear-gradient(to left,black 15%,transparent 85%)",
               }}
             />
           </div>
