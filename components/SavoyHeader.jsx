@@ -212,7 +212,7 @@ export default function SavoyHeader({ phase = 4 }) {
       >
         {/* Logo - Click goes to Home */}
         <div className="flex items-center">
-          <Link href="/home" className="block">
+          <Link href="/" className="block">
             <img
               src="/savoy-logo.png"
               alt="Savoy Logo"

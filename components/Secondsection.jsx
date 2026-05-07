@@ -606,6 +606,47 @@ export default function SecondSection() {
             font-size: clamp(1.1rem, 5vw, 1.6rem) !important;
           }
         }
+          /* ── Mobile Centering ── */
+@media (max-width: 640px) {
+  .second-bottom-row {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+    padding-top: 4vh !important;
+    padding-bottom: 10vh !important;
+    min-height: 100vh !important;
+    text-align: center !important;
+  }
+
+  .second-logo-col {
+    width: 80% !important;
+    min-height: 320px !important;
+    // height: auto !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .second-logo-inner {
+    position: relative !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  .second-pillars-col {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+  }
+
+  .second-pillar-text {
+    font-size: clamp(1.4rem, 6vw, 2rem) !important;
+    text-align: center !important;
+    margin-bottom: 0.3rem !important;
+  }
+}
       `}</style>
 
       <section
@@ -722,69 +763,69 @@ export default function SecondSection() {
           </div>
         </div>
 
-        {/* ── Bottom row — logo + pillars (unchanged) ── */}
-        <div
-          ref={rowRef}
-          className="second-bottom-row relative z-10 flex items-center px-20 pb-25"
-          style={{ minHeight: "100vh" }}
-        >
-          {/* Logo col */}
-          <div
-            className="second-logo-col relative flex-shrink-0 overflow-hidden"
-            style={{ width: "44%", minHeight: "100vh" }}
-          >
-            <div
-              className="second-logo-inner"
-              style={{
-                position: "absolute",
-                left: "1%",
-                top: "50%",
-                transformOrigin: "center center",
-                transform: rowInView
-                  ? "translateY(-50%) scale(1)"
-                  : "translateY(-50%) scale(0.08)",
-                opacity: rowInView ? 1 : 0,
-                transition: [
-                  "transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
-                  "opacity 1s ease-in 0.1s",
-                ].join(", "),
-              }}
-            >
-              <Image
-                src="/logo-savoy.png"
-                alt="Savoy Star"
-                width={600}
-                height={600}
-                priority
-              />
-            </div>
-          </div>
+       {/* ── Bottom row — logo + pillars ── */}
+<div
+  ref={rowRef}
+  className="second-bottom-row relative z-10 flex items-center px-20 pb-25"
+  style={{ minHeight: "100vh" }}
+>
+  {/* Logo col */}
+  <div
+    className="second-logo-col relative flex-shrink-0 overflow-hidden"
+    style={{ width: "44%", minHeight: "100vh" }}
+  >
+    <div
+      className="second-logo-inner"
+      style={{
+        position: "absolute",
+        left: "1%",
+        top: "50%",
+        transformOrigin: "center center",
+        transform: rowInView
+          ? "translateY(-50%) scale(1)"
+          : "translateY(-50%) scale(0.08)",
+        opacity: rowInView ? 1 : 0,
+        transition: [
+          "transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
+          "opacity 1s ease-in 0.1s",
+        ].join(", "),
+      }}
+    >
+      <Image
+        src="/logo-savoy.png"
+        alt="Savoy Star"
+        width={600}
+        height={600}
+        priority
+      />
+    </div>
+  </div>
 
-          {/* Pillars col */}
-          <div
-            className="second-pillars-col flex flex-col pl-50"
-            style={{ width: "56%", paddingRight: "3rem" }}
-          >
-            {pillars.map((text) => (
-              <p
-                key={text}
-                className="second-pillar-text"
-                style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  color: "white",
-                  fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
-                  fontWeight: 500,
-                  lineHeight: 1.1,
-                  margin: 0,
-                  opacity: rowInView ? 1 : 0,
-                  transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
-                }}
-              >
-                {text}
-              </p>
-            ))}
-          </div>
-        </div>
+  {/* Pillars col */}
+  <div
+    className="second-pillars-col flex flex-col pl-50"
+    style={{ width: "56%", paddingRight: "3rem" }}
+  >
+    {pillars.map((text) => (
+      <p
+        key={text}
+        className="second-pillar-text"
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          color: "white",
+          fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
+          fontWeight: 500,
+          lineHeight: 1.1,
+          margin: 0,
+          opacity: rowInView ? 1 : 0,
+          transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
+        }}
+      >
+        {text}
+      </p>
+    ))}
+  </div>
+</div>
       </section>
     </>
   );

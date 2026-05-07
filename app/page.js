@@ -1,4 +1,3 @@
-
 // "use client";
 
 // import BrandFooterSection from "@/components/Brandfootersection";
@@ -464,6 +463,276 @@
 //   );
 // }
 
+// "use client";
+
+// import BrandFooterSection from "@/components/Brandfootersection";
+// import SecondSection from "@/components/Secondsection";
+// import Thirdsection from "@/components/Thirdsection";
+// import FourthSection from "@/components/Fourthsection";
+// import SavoyHeader from "@/components/SavoyHeader";
+// import { useEffect, useRef, useState } from "react";
+
+// export default function Home() {
+//   const [phase, setPhase] = useState(0);
+//   const [videoEnded, setVideoEnded] = useState(false);
+//   const [isMobile, setIsMobile] = useState(false);
+
+//   const videoRef = useRef(null);
+//   const endHandled = useRef(false);
+
+//   // Detect mobile
+//   useEffect(() => {
+//     setIsMobile(window.innerWidth <= 768);
+//   }, []);
+
+//   // Scroll to top on mount
+//   useEffect(() => {
+//     if (typeof window !== "undefined") {
+//       if ("scrollRestoration" in history) {
+//         history.scrollRestoration = "manual";
+//       }
+//       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+//     }
+//   }, []);
+
+//   // Lock scroll while video is playing
+//   useEffect(() => {
+//     const locked = !videoEnded;
+//     document.body.style.overflow = locked ? "hidden" : "";
+//     document.documentElement.style.overflow = locked ? "hidden" : "";
+//     return () => {
+//       document.body.style.overflow = "";
+//       document.documentElement.style.overflow = "";
+//     };
+//   }, [videoEnded]);
+
+//   // Video + Phase timing
+//   useEffect(() => {
+//     const t1 = setTimeout(() => setPhase(1), 300);
+
+//     const vid = videoRef.current;
+//     if (vid) {
+//       vid.play().catch(() => handleVideoEnd());
+//     }
+
+//     return () => clearTimeout(t1);
+//   }, []);
+
+//   // Fallback if video doesn't end
+//   useEffect(() => {
+//     const fallback = setTimeout(() => {
+//       if (!endHandled.current) handleVideoEnd();
+//     }, 15000);
+//     return () => clearTimeout(fallback);
+//   }, []);
+
+//   function handleVideoEnd() {
+//     if (endHandled.current) return;
+//     endHandled.current = true;
+
+//     setPhase(3);
+
+//     setTimeout(() => {
+//       setPhase(4);
+//       setVideoEnded(true);
+//     }, 1800);
+//   }
+
+//   return (
+//     <>
+//       <style>{`
+//         @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+//         @import url('https://fonts.cdnfonts.com/css/general-sans');
+
+//         /* Mobile Nav Styles */
+//         .mobile-nav {
+//           position: fixed;
+//           inset: 0;
+//           background: rgba(0,0,0,0.97);
+//           z-index: 100;
+//           display: flex;
+//           flex-direction: column;
+//           align-items: center;
+//           justify-content: center;
+//           gap: 2.5rem;
+//           pointer-events: none;
+//           opacity: 0;
+//           transform: translateY(-24px);
+//           transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+//         }
+//         .mobile-nav.open {
+//           opacity: 1;
+//           transform: translateY(0);
+//           pointer-events: all;
+//         }
+//         .mobile-nav a {
+//           font-family: 'Cormorant', Georgia, serif;
+//           color: #fff;
+//           font-size: clamp(1.6rem, 6vw, 2.4rem);
+//           font-weight: 300;
+//           letter-spacing: 0.18em;
+//           text-decoration: none;
+//           text-transform: uppercase;
+//         }
+
+//         /* Hamburger */
+//         .hamburger-btn {
+//           display: none;
+//           flex-direction: column;
+//           gap: 5px;
+//           background: none;
+//           border: none;
+//           cursor: pointer;
+//           padding: 8px;
+//           z-index: 110;
+//         }
+//         .ham-line {
+//           width: 22px;
+//           height: 1.5px;
+//           background: #fff;
+//           transition: all 0.3s ease;
+//         }
+
+//         @media (max-width: 1024px) {
+//           .hamburger-btn { display: flex; }
+//           .desktop-nav { display: none !important; }
+//         }
+//       `}</style>
+
+//       {/* Header Component */}
+//       <SavoyHeader phase={phase} />
+
+//       {/* Hero Section */}
+//       <div className="relative w-full min-h-screen bg-black overflow-hidden">
+//         {/* Video */}
+//         <div
+//           className="absolute inset-0 transition-opacity"
+//           style={{
+//             opacity: phase >= 1 && phase < 3 ? 1 : 0,
+//             transitionDuration: "2000ms",
+//           }}
+//         >
+//           <video
+//             ref={videoRef}
+//             className="w-full h-full object-cover"
+//             autoPlay
+//             muted
+//             playsInline
+//             onEnded={handleVideoEnd}
+//             src={
+//               isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo2.mp4"
+//             }
+//           />
+//         </div>
+
+//         {/* Lighthouse */}
+//         <div
+//           className="absolute inset-0 transition-opacity"
+//           style={{
+//             opacity: phase >= 3 ? 1 : 0,
+//             transitionDuration: "3000ms",
+//           }}
+//         >
+//           <div
+//             className="absolute lighthouse-wrap"
+//             style={{ right: 0, top: "10%", bottom: 0, width: "70%" }}
+//           >
+//             {/* <img
+//               src="/savoy-12.png"
+//               alt="Lighthouse"
+//               className="lighthouse-img"
+//               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+//             /> */}
+//           </div>
+//         </div>
+
+//         {/* Bottom Content */}
+//         {/* <div
+//           // className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-20 pb-14"
+//           className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-6 pr-6 pb-10 md:pl-20 md:pr-0 md:pb-14"
+//           style={{
+//             opacity: phase >= 4 ? 1 : 0,
+//             transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
+//             transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
+//           }}
+//         >
+//           <p
+//             className="text-white tracking-widest uppercase mb-3"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+//               fontSize: "0.95rem",
+//               fontWeight: 300,
+//             }}
+//           >
+//             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+//             <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+//               Tailored Banking &amp; Trust Services
+//             </span>
+//           </p>
+//           <h1
+//             className="text-white max-w-[680px] leading-none"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+//               fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
+//               fontWeight: 300,
+//             }}
+//           >
+//             Tailored banking, trust, and market services for clients who value discretion, continuity, and clear guidance in a complex international landscape.
+//           </h1>
+//         </div> */}
+//         {/* Bottom Content */}
+//         <div
+//           className="hero-bottom absolute bottom-0 left-0 right-0 z-30 px-5 pb-10 md:pl-20 md:pr-0 md:pb-14"
+//           style={{
+//             opacity: phase >= 4 ? 1 : 0,
+//             transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
+//             transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
+//           }}
+//         >
+//           <p
+//             className="text-white tracking-widest uppercase mb-3"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+//               fontSize: "0.95rem",
+//               fontWeight: 300,
+//             }}
+//           >
+//             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+//             <span
+//               style={{
+//                 fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+//               }}
+//             >
+//               Tailored Banking &amp; Trust Services
+//             </span>
+//           </p>
+
+//           <h1
+//             className="text-white leading-none"
+//             style={{
+//               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+//               fontSize: "clamp(1.8rem, 2vw, 1.3rem)", // Much better for mobile
+//               fontWeight: 300,
+//               maxWidth: "680px",
+//             }}
+//           >
+//             Tailored banking, trust, and market services for clients who value
+//             discretion, continuity, and clear guidance in a complex
+//             international landscape.
+//           </h1>
+//         </div>
+//       </div>
+
+//       {/* Other Sections */}
+//       <SecondSection />
+//       <Thirdsection />
+//       <FourthSection />
+//       <BrandFooterSection />
+//     </>
+//   );
+// }
+
+
 "use client";
 
 import BrandFooterSection from "@/components/Brandfootersection";
@@ -473,30 +742,57 @@ import FourthSection from "@/components/Fourthsection";
 import SavoyHeader from "@/components/SavoyHeader";
 import { useEffect, useRef, useState } from "react";
 
+// ─────────────────────────────────────────────────────────────────────────────
+// MODULE-LEVEL flag — this is the key fix.
+//
+// Unlike sessionStorage (which persists through refresh),
+// a module-level variable resets to false on every real page reload/refresh,
+// but stays true during client-side Next.js navigation (back button, logo click).
+//
+//   Fresh tab / Refresh  → introShown = false → play video → set true
+//   Back button          → introShown = true  → skip video
+//   Logo click           → introShown = true  → skip video
+// ─────────────────────────────────────────────────────────────────────────────
+let introShown = false;
+
 export default function Home() {
   const [phase, setPhase] = useState(0);
   const [videoEnded, setVideoEnded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const videoRef = useRef(null);
+  const videoRef   = useRef(null);
   const endHandled = useRef(false);
+
+  function handleVideoEnd() {
+    if (endHandled.current) return;
+    endHandled.current = true;
+    setPhase(3);
+    setTimeout(() => {
+      setPhase(4);
+      setVideoEnded(true);
+    }, 400);
+  }
+
+  function skipToEnd() {
+    endHandled.current = true;
+    setPhase(4);
+    setVideoEnded(true);
+  }
 
   // Detect mobile
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
   }, []);
 
-  // Scroll to top on mount
+  // Scroll to top
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, []);
 
-  // Lock scroll while video is playing
+  // Lock scroll while video plays
   useEffect(() => {
     const locked = !videoEnded;
     document.body.style.overflow = locked ? "hidden" : "";
@@ -507,19 +803,24 @@ export default function Home() {
     };
   }, [videoEnded]);
 
-  // Video + Phase timing
+  // ── Core: play or skip ───────────────────────────────────────
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 300);
-
-    const vid = videoRef.current;
-    if (vid) {
-      vid.play().catch(() => handleVideoEnd());
+    if (introShown) {
+      // Already played this session load — skip (back button / logo click)
+      skipToEnd();
+      return;
     }
 
+    // First time this module has loaded (fresh tab or real refresh) — play video
+    introShown = true;
+
+    const t1 = setTimeout(() => setPhase(1), 300);
+    const vid = videoRef.current;
+    if (vid) vid.play().catch(() => handleVideoEnd());
     return () => clearTimeout(t1);
   }, []);
 
-  // Fallback if video doesn't end
+  // Safety fallback: if video never fires onEnded within 15s
   useEffect(() => {
     const fallback = setTimeout(() => {
       if (!endHandled.current) handleVideoEnd();
@@ -527,84 +828,41 @@ export default function Home() {
     return () => clearTimeout(fallback);
   }, []);
 
-  function handleVideoEnd() {
-    if (endHandled.current) return;
-    endHandled.current = true;
-
-    setPhase(3);
-
-    setTimeout(() => {
-      setPhase(4);
-      setVideoEnded(true);
-    }, 1800);
-  }
-
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
         @import url('https://fonts.cdnfonts.com/css/general-sans');
 
-        /* Mobile Nav Styles */
         .mobile-nav {
-          position: fixed;
-          inset: 0;
-          background: rgba(0,0,0,0.97);
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 2.5rem;
-          pointer-events: none;
-          opacity: 0;
-          transform: translateY(-24px);
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,0.97); z-index: 100;
+          display: flex; flex-direction: column; align-items: center; justify-content: center;
+          gap: 2.5rem; pointer-events: none; opacity: 0; transform: translateY(-24px);
           transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
         }
-        .mobile-nav.open {
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: all;
-        }
+        .mobile-nav.open { opacity: 1; transform: translateY(0); pointer-events: all; }
         .mobile-nav a {
-          font-family: 'Cormorant', Georgia, serif;
-          color: #fff;
-          font-size: clamp(1.6rem, 6vw, 2.4rem);
-          font-weight: 300;
-          letter-spacing: 0.18em;
-          text-decoration: none;
-          text-transform: uppercase;
+          font-family: 'Cormorant', Georgia, serif; color: #fff;
+          font-size: clamp(1.6rem, 6vw, 2.4rem); font-weight: 300;
+          letter-spacing: 0.18em; text-decoration: none; text-transform: uppercase;
         }
-
-        /* Hamburger */
         .hamburger-btn {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 8px;
-          z-index: 110;
+          display: none; flex-direction: column; gap: 5px;
+          background: none; border: none; cursor: pointer; padding: 8px; z-index: 110;
         }
-        .ham-line {
-          width: 22px;
-          height: 1.5px;
-          background: #fff;
-          transition: all 0.3s ease;
-        }
-
+        .ham-line { width: 22px; height: 1.5px; background: #fff; transition: all 0.3s ease; }
         @media (max-width: 1024px) {
           .hamburger-btn { display: flex; }
           .desktop-nav { display: none !important; }
         }
       `}</style>
 
-      {/* Header Component */}
       <SavoyHeader phase={phase} />
 
-      {/* Hero Section */}
+      {/* ── Hero ── */}
       <div className="relative w-full min-h-screen bg-black overflow-hidden">
+
         {/* Video */}
         <div
           className="absolute inset-0 transition-opacity"
@@ -624,28 +882,50 @@ export default function Home() {
           />
         </div>
 
-        {/* Lighthouse */}
+        {/* Post-video layer */}
         <div
           className="absolute inset-0 transition-opacity"
-          style={{
-            opacity: phase >= 3 ? 1 : 0,
-            transitionDuration: "3000ms",
-          }}
+          style={{ opacity: phase >= 3 ? 1 : 0, transitionDuration: "3000ms" }}
         >
-          <div className="absolute lighthouse-wrap" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }}>
-            {/* <img
-              src="/savoy-12.png"
-              alt="Lighthouse"
-              className="lighthouse-img"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-            /> */}
-          </div>
+          <div className="absolute" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }} />
         </div>
 
-        {/* Bottom Content */}
+        {/* Bottom text */}
+        {/* <div
+          className="absolute bottom-0 left-0 right-0 z-30 px-5 pb-10 md:pl-20 md:pr-0 md:pb-14"
+          style={{
+            opacity: phase >= 4 ? 1 : 0,
+            transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
+          }}
+        >
+          <p
+            className="text-white tracking-widest uppercase mb-3"
+            style={{
+              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+              fontSize: "0.95rem", fontWeight: 300,
+            }}
+          >
+            SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
+            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+              Tailored Banking &amp; Trust Services
+            </span>
+          </p>
+          <h1
+            className="text-white leading-none"
+            style={{
+              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+              fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+              fontWeight: 300, maxWidth: "680px",
+            }}
+          >
+            Tailored banking, trust, and market services for clients who value
+            discretion, continuity, and clear guidance in a complex
+            international landscape.
+          </h1>
+        </div> */}
         <div
-          // className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-20 pb-14"
-          className="hero-bottom absolute bottom-0 left-0 right-0 z-30 pl-6 pr-6 pb-10 md:pl-20 md:pr-0 md:pb-14"
+          className="hero-bottom absolute bottom-0 left-0 right-0 z-30 px-5 pb-10 md:pl-20 md:pr-0 md:pb-14"
           style={{
             opacity: phase >= 4 ? 1 : 0,
             transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
@@ -661,24 +941,31 @@ export default function Home() {
             }}
           >
             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
-            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+            <span
+              style={{
+                fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
+              }}
+            >
               Tailored Banking &amp; Trust Services
             </span>
           </p>
+
           <h1
-            className="text-white max-w-[680px] leading-none"
+            className="text-white leading-none"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
+              fontSize: "clamp(1.8rem, 2vw, 1.3rem)", // Much better for mobile
               fontWeight: 300,
+              maxWidth: "680px",
             }}
           >
-            Tailored banking, trust, and market services for clients who value discretion, continuity, and clear guidance in a complex international landscape.
+            Tailored banking, trust, and market services for clients who value
+            discretion, continuity, and clear guidance in a complex
+            international landscape.
           </h1>
         </div>
       </div>
 
-      {/* Other Sections */}
       <SecondSection />
       <Thirdsection />
       <FourthSection />
