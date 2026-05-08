@@ -116,10 +116,10 @@ export default function Leadership() {
         <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden px-6 pb-16 md:px-20 md:pb-24">
 
           {/* Desktop Watermark */}
-          <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none select-none">
+          <div className="hidden md:block absolute right-0 top-20 bottom-0 w-1/2 pointer-events-none select-none">
             <div className="absolute inset-0 flex items-center justify-center">
               <div style={{ width: "min(520px, 42vw)", height: "min(620px, 42vw)", position: "relative" }}>
-                <Image src="/savoy-5.png" alt="" fill style={{ objectFit: "contain", opacity: 0.25 }} />
+                <Image src="/savoy-8.png" alt="" fill style={{ objectFit: "contain", opacity: 0.50 }} />
               </div>
             </div>
             <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #000 0%, transparent 40%)" }} />
@@ -127,9 +127,9 @@ export default function Leadership() {
 
           {/* Mobile Watermark */}
           <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <div style={{ width: "420px", height: "520px", position: "relative", opacity: 0.25 }}>
+            <div style={{ width: "420px", height: "520px", position: "relative", opacity: 0.50 }}>
               <Image 
-                src="/savoy-5.png" 
+                src="/savoy-8.png" 
                 alt="" 
                 fill 
                 style={{ objectFit: "contain" }} 
@@ -147,14 +147,14 @@ export default function Leadership() {
 
             <div style={fadeUp(heroInView, "0.35s")} className="mt-8">
               <span className="block w-10 h-px bg-white mb-6" />
-              <p className="text-white/40 max-w-lg" style={{ fontFamily: sans, fontSize: "0.88rem", lineHeight: 1.8 }}>
+              <p className="text-white max-w-lg" style={{ fontFamily: sans, fontSize: "0.88rem", lineHeight: 1.3 }}>
                 Our leadership team combines deep institutional experience with unwavering commitment to discretion, independence, and long-term thinking.
               </p>
             </div>
           </div>
         </section>
 
-        <div className="w-full h-px bg-white/10" />
+        <div className="w-full h-px bg-black" />
 
         {/* LEADERSHIP TEAM */}
         <section ref={teamRef} className="py-24 px-6 md:px-20">
@@ -172,7 +172,7 @@ export default function Leadership() {
                 style={fadeUp(teamInView, `${0.1 + i * 0.12}s`)}
                 className="group"
               >
-                <div className="relative aspect-[4/3] mb-8 overflow-hidden bg-white/5">
+                <div className="relative aspect-[6/5] mb-8 overflow-hidden bg-black">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -185,18 +185,18 @@ export default function Leadership() {
                     <h3 className="text-3xl font-light" style={{ fontFamily: serif }}>
                       {member.name}
                     </h3>
-                    <p style={{ fontFamily: sans, fontSize: "0.9rem", letterSpacing: "0.05em" }} className="text-white/60 mt-1">
+                    <p style={{ fontFamily: sans, fontSize: "0.9rem", letterSpacing: "0.05em" }} className="text-white mt-1">
                       {member.title}
                     </p>
                   </div>
                 </div>
 
                 <div className="max-w-lg">
-                  <p style={{ fontFamily: sans, fontSize: "0.85rem", lineHeight: 1.85 }} className="text-white/70">
+                  <p style={{ fontFamily: sans, fontSize: "0.85rem", lineHeight: 1.3 }} className="text-white">
                     {member.bio}
                   </p>
                   <div className="mt-6 pt-6 border-t border-white/10">
-                    <p style={{ fontFamily: sans, fontSize: "0.73rem", letterSpacing: "0.04em" }} className="text-white/40">
+                    <p style={{ fontFamily: sans, fontSize: "0.73rem", letterSpacing: "0.04em" }} className="text-white">
                       {member.credentials}
                     </p>
                   </div>
@@ -206,18 +206,18 @@ export default function Leadership() {
           </div>
         </section>
 
-        <div className="w-full h-px bg-white/10" />
+        <div className="w-full h-px bg-black" />
 
         {/* CLOSING QUOTE */}
-        <section className="py-28 px-6 md:px-20 text-center">
+        <section className="py-5 pb-10 px-6 md:px-20 text-center">
           <div className="max-w-2xl mx-auto">
-            <Image src="/savoy-logo.png" alt="Savoy" width={48} height={48} className="opacity-20 mx-auto mb-8" />
             
-            <p style={{ fontFamily: serif, fontSize: "clamp(1.35rem, 2.8vw, 2.1rem)", lineHeight: 1.4, fontStyle: "italic" }} className="text-white/60">
+            
+            <p style={{ fontFamily: serif, fontSize: "clamp(1.35rem, 2.8vw, 2.1rem)", lineHeight: 1.1, fontStyle: "italic" }} className="text-white">
               “True wealth management is not about products — it is about judgment, continuity, and trust built over decades.”
             </p>
             
-            <p style={{ fontFamily: sans, fontSize: "0.75rem", letterSpacing: "0.2em" }} className="uppercase text-white/30 mt-10">
+            <p style={{ fontFamily: sans, fontSize: "0.75rem", letterSpacing: "0.2em" }} className="uppercase text-white mt-5">
               Savoy Bank &amp; Trust Leadership
             </p>
           </div>

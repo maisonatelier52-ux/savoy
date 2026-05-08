@@ -574,7 +574,7 @@ export default function SecondSection() {
           }
           .second-top-img-inner {
             width: 100% !important;
-            height: 280px !important;
+            height: 480px !important;
             border-radius: 4px !important;
           }
 
@@ -610,13 +610,13 @@ export default function SecondSection() {
 @media (max-width: 640px) {
   .second-bottom-row {
     flex-direction: column !important;
-    justify-content: center !important;
+    // justify-content: center !important;
     align-items: center !important;
     padding-left: 5vw !important;
     padding-right: 5vw !important;
     padding-top: 4vh !important;
     padding-bottom: 10vh !important;
-    min-height: 100vh !important;
+    // min-height: 100vh !important;
     text-align: center !important;
   }
 

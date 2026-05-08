@@ -732,7 +732,6 @@
 //   );
 // }
 
-
 "use client";
 
 import BrandFooterSection from "@/components/Brandfootersection";
@@ -760,7 +759,7 @@ export default function Home() {
   const [videoEnded, setVideoEnded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const videoRef   = useRef(null);
+  const videoRef = useRef(null);
   const endHandled = useRef(false);
 
   function handleVideoEnd() {
@@ -856,13 +855,27 @@ export default function Home() {
           .hamburger-btn { display: flex; }
           .desktop-nav { display: none !important; }
         }
+          /* Lighthouse mobile mask */
+            @media (max-width: 640px) {
+              .lighthouse-img {
+                mask-image:
+                  linear-gradient(to right, transparent 0%, black 30%),
+                  linear-gradient(to top, transparent 0%, black 40%),
+                  linear-gradient(to bottom, transparent 0%, black 30%) !important;
+                -webkit-mask-image:
+                  linear-gradient(to right, transparent 0%, black 30%),
+                  linear-gradient(to top, transparent 0%, black 40%),
+                  linear-gradient(to bottom, transparent 0%, black 30%) !important;
+                mask-composite: intersect !important;
+                -webkit-mask-composite: source-in !important;
+              }
+            }
       `}</style>
 
       <SavoyHeader phase={phase} />
 
       {/* ── Hero ── */}
       <div className="relative w-full min-h-screen bg-black overflow-hidden">
-
         {/* Video */}
         <div
           className="absolute inset-0 transition-opacity"
@@ -878,7 +891,9 @@ export default function Home() {
             muted
             playsInline
             onEnded={handleVideoEnd}
-            src={isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo2.mp4"}
+            src={
+              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo2.mp4"
+            }
           />
         </div>
 
@@ -889,6 +904,29 @@ export default function Home() {
         >
           <div className="absolute" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }} />
         </div>
+        {/* Post-video layer — lighthouse */}
+        {/* <div
+          className="absolute inset-0 transition-opacity"
+          style={{
+            opacity: phase >= 3 ? 1 : 0,
+            transitionDuration: "3000ms",
+            transitionTimingFunction: "ease-in-out",
+          }}
+        >
+          <div className="absolute right-0 bottom-0 w-full top-0 md:w-[70%] md:top-[10%]">
+            <img
+              src="/savoy-12.png"
+              alt="Lighthouse"
+              className="lighthouse-img w-full h-full object-cover object-top md:object-[center_top]"
+              style={{
+                maskImage: `linear-gradient(to right, transparent 5%, black 50%), linear-gradient(to top, transparent 0%, black 45%)`,
+                WebkitMaskImage: `linear-gradient(to right, transparent 5%, black 50%), linear-gradient(to top, transparent 0%, black 45%)`,
+                maskComposite: "intersect",
+                WebkitMaskComposite: "source-in",
+              }}
+            />
+          </div>
+        </div> */}
 
         {/* Bottom text */}
         {/* <div
