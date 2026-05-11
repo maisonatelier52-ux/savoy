@@ -563,6 +563,12 @@ export default function SecondSection() {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
           }
+
+          .second-top-text{
+                  width: 100% !important;
+                max-width: 100% !important;
+                padding-right: 10px !important;
+            }
           /* Move image to row 1, text to row 2 */
           .second-top-text  { order: 2 !important; }
           .second-top-image { order: 1 !important; }
@@ -669,20 +675,30 @@ export default function SecondSection() {
         <div
           ref={topRef}
           className="second-top-block relative z-10"
-          style={{ paddingLeft: "4.5rem", paddingTop: "7.5rem", paddingBottom: "3rem" }}
+          style={{
+            paddingLeft: "4.5rem",
+            paddingTop: "7.5rem",
+            paddingBottom: "3rem",
+          }}
         >
           <div className="second-top-grid" style={{ maxWidth: "1100px" }}>
-
             {/* LEFT — text content */}
             <div className="second-top-text">
               <p
                 className="mb-6 tracking-widest"
                 style={{ color: "rgb(255, 255, 255)", fontSize: "0.95rem" }}
               >
-                <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                <span
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                >
                   SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
                 </span>
-                <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
+                <span
+                  style={{
+                    fontFamily:
+                      "'General Sans', 'Inter', system-ui, sans-serif",
+                  }}
+                >
                   Traditional Values. International Perspective
                 </span>
               </p>
@@ -697,11 +713,11 @@ export default function SecondSection() {
                   lineHeight: 1.0,
                 }}
               >
-                Savoy Bank &amp; Trust brings together traditional banking values
-                and an international perspective to deliver tailored financial
-                solutions for a discerning clientele. Our approach is grounded in
-                personal attention, measured judgment, and long-term relationships
-                built on trust.
+                Savoy Bank &amp; Trust brings together traditional banking
+                values and an international perspective to deliver tailored
+                financial solutions for a discerning clientele. Our approach is
+                grounded in personal attention, measured judgment, and long-term
+                relationships built on trust.
               </p>
 
               <p
@@ -740,7 +756,8 @@ export default function SecondSection() {
                   aspectRatio: "3/4",
                   borderRadius: "2px",
                   overflow: "hidden",
-                  transform: "translateX(14rem)",   /* ← move right — increase to taste */
+                  transform:
+                    "translateX(14rem)" /* ← move right — increase to taste */,
                 }}
               >
                 <Image
@@ -749,7 +766,8 @@ export default function SecondSection() {
                   fill
                   style={{
                     objectFit: "contain",
-                    objectPosition: "center",      /* ← back to center, translateX handles positioning */
+                    objectPosition:
+                      "center" /* ← back to center, translateX handles positioning */,
                     opacity: 0.88,
                     maskImage:
                       "radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%)",
@@ -759,73 +777,72 @@ export default function SecondSection() {
                 />
               </div>
             </div>
-
           </div>
         </div>
 
-       {/* ── Bottom row — logo + pillars ── */}
-<div
-  ref={rowRef}
-  className="second-bottom-row relative z-10 flex items-center px-20 pb-25"
-  style={{ minHeight: "100vh" }}
->
-  {/* Logo col */}
-  <div
-    className="second-logo-col relative flex-shrink-0 overflow-hidden"
-    style={{ width: "44%", minHeight: "100vh" }}
-  >
-    <div
-      className="second-logo-inner"
-      style={{
-        position: "absolute",
-        left: "1%",
-        top: "50%",
-        transformOrigin: "center center",
-        transform: rowInView
-          ? "translateY(-50%) scale(1)"
-          : "translateY(-50%) scale(0.08)",
-        opacity: rowInView ? 1 : 0,
-        transition: [
-          "transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
-          "opacity 1s ease-in 0.1s",
-        ].join(", "),
-      }}
-    >
-      <Image
-        src="/logo-savoy.png"
-        alt="Savoy Star"
-        width={600}
-        height={600}
-        priority
-      />
-    </div>
-  </div>
+        {/* ── Bottom row — logo + pillars ── */}
+        <div
+          ref={rowRef}
+          className="second-bottom-row relative z-10 flex items-center px-20 pb-25"
+          style={{ minHeight: "100vh" }}
+        >
+          {/* Logo col */}
+          <div
+            className="second-logo-col relative flex-shrink-0 overflow-hidden"
+            style={{ width: "44%", minHeight: "100vh" }}
+          >
+            <div
+              className="second-logo-inner"
+              style={{
+                position: "absolute",
+                left: "1%",
+                top: "50%",
+                transformOrigin: "center center",
+                transform: rowInView
+                  ? "translateY(-50%) scale(1)"
+                  : "translateY(-50%) scale(0.08)",
+                opacity: rowInView ? 1 : 0,
+                transition: [
+                  "transform 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
+                  "opacity 1s ease-in 0.1s",
+                ].join(", "),
+              }}
+            >
+              <Image
+                src="/logo-savoy.png"
+                alt="Savoy Star"
+                width={600}
+                height={600}
+                priority
+              />
+            </div>
+          </div>
 
-  {/* Pillars col */}
-  <div
-    className="second-pillars-col flex flex-col pl-50"
-    style={{ width: "56%", paddingRight: "3rem" }}
-  >
-    {pillars.map((text) => (
-      <p
-        key={text}
-        className="second-pillar-text"
-        style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          color: "white",
-          fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
-          fontWeight: 500,
-          lineHeight: 1.1,
-          margin: 0,
-          opacity: rowInView ? 1 : 0,
-          transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
-        }}
-      >
-        {text}
-      </p>
-    ))}
-  </div>
-</div>
+          {/* Pillars col */}
+          <div
+            className="second-pillars-col flex flex-col pl-50"
+            style={{ width: "56%", paddingRight: "3rem" }}
+          >
+            {pillars.map((text) => (
+              <p
+                key={text}
+                className="second-pillar-text"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  color: "white",
+                  fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
+                  fontWeight: 500,
+                  lineHeight: 1.1,
+                  margin: 0,
+                  opacity: rowInView ? 1 : 0,
+                  transition: `opacity 6s cubic-bezier(0.4, 0, 0.2, 1)`,
+                }}
+              >
+                {text}
+              </p>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
