@@ -881,16 +881,30 @@ export default function Home() {
           className="absolute inset-0 transition-opacity"
           style={{
             opacity: phase >= 1 && phase < 3 ? 1 : 0,
-            transitionDuration: "3000ms",
+            transitionDuration: "2000ms",
           }}
         >
-          <video
+          {/* <video
             ref={videoRef}
-            className="w-full h-full object-fill"
+            className="w-full h-full object-fill" //h-100% to make below cut video 
             autoPlay
             muted
             playsInline
             onEnded={handleVideoEnd}
+            src={
+              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"
+            }
+          /> */}
+          <video
+            ref={videoRef}
+            className={`w-full h-full ${isMobile ? "object-cover" : "object-fill"}`} //h-100% to make below cut video
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleVideoEnd}
+            onCanPlay={(e) => {
+              e.target.playbackRate = 1.0;
+            }}
             src={
               isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"
             }
@@ -902,7 +916,10 @@ export default function Home() {
           className="absolute inset-0 transition-opacity"
           style={{ opacity: phase >= 3 ? 1 : 0, transitionDuration: "3000ms" }}
         >
-          <div className="absolute" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }} />
+          <div
+            className="absolute"
+            style={{ right: 0, top: "10%", bottom: 0, width: "70%" }}
+          />
         </div>
         {/* Post-video layer — lighthouse */}
         <div
