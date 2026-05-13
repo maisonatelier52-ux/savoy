@@ -905,7 +905,7 @@ export default function Home() {
           <div className="absolute" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }} />
         </div>
         {/* Post-video layer — lighthouse */}
-        {/* <div
+        <div
           className="absolute inset-0 transition-opacity"
           style={{
             opacity: phase >= 3 ? 1 : 0,
@@ -913,9 +913,9 @@ export default function Home() {
             transitionTimingFunction: "ease-in-out",
           }}
         >
-          <div className="absolute right-0 bottom-0 w-full top-0 md:w-[70%] md:top-[10%]">
+          <div className="absolute right-0 bottom-0 w-full top-0 md:w-[40%] md:top-[20%]">
             <img
-              src="/savoy-12.png"
+              src="/savoy-20.png"
               alt="Lighthouse"
               className="lighthouse-img w-full h-full object-cover object-top md:object-[center_top]"
               style={{
@@ -926,7 +926,7 @@ export default function Home() {
               }}
             />
           </div>
-        </div> */}
+        </div>
 
         {/* Bottom text */}
         {/* <div

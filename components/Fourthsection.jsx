@@ -302,7 +302,7 @@ export default function SavoyServices() {
         <div className="fourth-img-col">
           <div className="fourth-img-wrap">
             <Image
-              src="/illustration-1-2.png"
+              src="/savoy-21.png"
               alt="Lighthouse illustration"
               width={460}
               height={600}
