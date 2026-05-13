@@ -881,18 +881,18 @@ export default function Home() {
           className="absolute inset-0 transition-opacity"
           style={{
             opacity: phase >= 1 && phase < 3 ? 1 : 0,
-            transitionDuration: "2000ms",
+            transitionDuration: "3000ms",
           }}
         >
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
             autoPlay
             muted
             playsInline
             onEnded={handleVideoEnd}
             src={
-              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo2.mp4"
+              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"
             }
           />
         </div>
