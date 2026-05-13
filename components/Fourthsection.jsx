@@ -98,7 +98,7 @@ export default function SavoyServices() {
         .fourth-img-wrap {
           width: 100%;
           max-width: 660px;
-          margin-top: 100vh;   /* nudge image down */
+          margin-top: 70vh;   /* nudge image down */
           /* Fade left edge into the background */
           -webkit-mask-image: linear-gradient(
             to right, transparent 0%, black 22%, black 100%
