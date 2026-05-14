@@ -731,7 +731,6 @@
 //     </>
 //   );
 // }
-
 "use client";
 
 import BrandFooterSection from "@/components/Brandfootersection";
@@ -741,17 +740,6 @@ import FourthSection from "@/components/Fourthsection";
 import SavoyHeader from "@/components/SavoyHeader";
 import { useEffect, useRef, useState } from "react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// MODULE-LEVEL flag — this is the key fix.
-//
-// Unlike sessionStorage (which persists through refresh),
-// a module-level variable resets to false on every real page reload/refresh,
-// but stays true during client-side Next.js navigation (back button, logo click).
-//
-//   Fresh tab / Refresh  → introShown = false → play video → set true
-//   Back button          → introShown = true  → skip video
-//   Logo click           → introShown = true  → skip video
-// ─────────────────────────────────────────────────────────────────────────────
 let introShown = false;
 
 export default function Home() {
@@ -805,17 +793,18 @@ export default function Home() {
   // ── Core: play or skip ───────────────────────────────────────
   useEffect(() => {
     if (introShown) {
-      // Already played this session load — skip (back button / logo click)
       skipToEnd();
       return;
     }
 
-    // First time this module has loaded (fresh tab or real refresh) — play video
     introShown = true;
 
     const t1 = setTimeout(() => setPhase(1), 300);
     const vid = videoRef.current;
-    if (vid) vid.play().catch(() => handleVideoEnd());
+    if (vid) {
+      vid.playbackRate = 0.75; // slow playback — change to 0.5 for slower, 1.0 for normal slow down 0.6 ,0.5 this good slow down without making it too long
+      vid.play().catch(() => handleVideoEnd());
+    }
     return () => clearTimeout(t1);
   }, []);
 
@@ -855,27 +844,27 @@ export default function Home() {
           .hamburger-btn { display: flex; }
           .desktop-nav { display: none !important; }
         }
-          /* Lighthouse mobile mask */
-            @media (max-width: 640px) {
-              .lighthouse-img {
-                mask-image:
-                  linear-gradient(to right, transparent 0%, black 30%),
-                  linear-gradient(to top, transparent 0%, black 40%),
-                  linear-gradient(to bottom, transparent 0%, black 30%) !important;
-                -webkit-mask-image:
-                  linear-gradient(to right, transparent 0%, black 30%),
-                  linear-gradient(to top, transparent 0%, black 40%),
-                  linear-gradient(to bottom, transparent 0%, black 30%) !important;
-                mask-composite: intersect !important;
-                -webkit-mask-composite: source-in !important;
-              }
-            }
+        @media (max-width: 640px) {
+          .lighthouse-img {
+            mask-image:
+              linear-gradient(to right, transparent 0%, black 30%),
+              linear-gradient(to top, transparent 0%, black 40%),
+              linear-gradient(to bottom, transparent 0%, black 30%) !important;
+            -webkit-mask-image:
+              linear-gradient(to right, transparent 0%, black 30%),
+              linear-gradient(to top, transparent 0%, black 40%),
+              linear-gradient(to bottom, transparent 0%, black 30%) !important;
+            mask-composite: intersect !important;
+            -webkit-mask-composite: source-in !important;
+          }
+        }
       `}</style>
 
       <SavoyHeader phase={phase} />
 
       {/* ── Hero ── */}
       <div className="relative w-full min-h-screen bg-black overflow-hidden">
+
         {/* Video */}
         <div
           className="absolute inset-0 transition-opacity"
@@ -884,43 +873,28 @@ export default function Home() {
             transitionDuration: "2000ms",
           }}
         >
-          {/* <video
-            ref={videoRef}
-            className="w-full h-full object-fill" //h-100% to make below cut video 
-            autoPlay
-            muted
-            playsInline
-            onEnded={handleVideoEnd}
-            src={
-              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"
-            }
-          /> */}
           <video
             ref={videoRef}
-            className={`w-full h-full ${isMobile ? "object-cover" : "object-fill"}`} //h-100% to make below cut video
+            className={`w-full h-full ${isMobile ? "object-cover" : "object-fill"}`}
             autoPlay
             muted
             playsInline
             onEnded={handleVideoEnd}
             onCanPlay={(e) => {
-              e.target.playbackRate = 1.0;
+              e.target.playbackRate = 0.75; // keeps slow speed after buffering
             }}
-            src={
-              isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"
-            }
+            src={isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"}
           />
         </div>
 
-        {/* Post-video layer */}
+        {/* Post-video layer — empty placeholder */}
         <div
           className="absolute inset-0 transition-opacity"
           style={{ opacity: phase >= 3 ? 1 : 0, transitionDuration: "3000ms" }}
         >
-          <div
-            className="absolute"
-            style={{ right: 0, top: "10%", bottom: 0, width: "70%" }}
-          />
+          <div className="absolute" style={{ right: 0, top: "10%", bottom: 0, width: "70%" }} />
         </div>
+
         {/* Post-video layer — lighthouse */}
         <div
           className="absolute inset-0 transition-opacity"
@@ -932,7 +906,7 @@ export default function Home() {
         >
           <div className="absolute right-0 bottom-0 w-full top-0 md:w-[40%] md:top-[20%]">
             <img
-              src="/savoy-20.png"
+              src="/savoy-23.png"
               alt="Lighthouse"
               className="lighthouse-img w-full h-full object-cover object-top md:object-[center_top]"
               style={{
@@ -946,39 +920,6 @@ export default function Home() {
         </div>
 
         {/* Bottom text */}
-        {/* <div
-          className="absolute bottom-0 left-0 right-0 z-30 px-5 pb-10 md:pl-20 md:pr-0 md:pb-14"
-          style={{
-            opacity: phase >= 4 ? 1 : 0,
-            transform: phase >= 4 ? "translateY(0)" : "translateY(24px)",
-            transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
-          }}
-        >
-          <p
-            className="text-white tracking-widest uppercase mb-3"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontSize: "0.95rem", fontWeight: 300,
-            }}
-          >
-            SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
-            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
-              Tailored Banking &amp; Trust Services
-            </span>
-          </p>
-          <h1
-            className="text-white leading-none"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
-              fontWeight: 300, maxWidth: "680px",
-            }}
-          >
-            Tailored banking, trust, and market services for clients who value
-            discretion, continuity, and clear guidance in a complex
-            international landscape.
-          </h1>
-        </div> */}
         <div
           className="hero-bottom absolute bottom-0 left-0 right-0 z-30 px-5 pb-10 md:pl-20 md:pr-0 md:pb-14"
           style={{
@@ -996,20 +937,15 @@ export default function Home() {
             }}
           >
             SAVOY BANK &amp; TRUST &nbsp;|&nbsp;
-            <span
-              style={{
-                fontFamily: "'General Sans', 'Inter', system-ui, sans-serif",
-              }}
-            >
+            <span style={{ fontFamily: "'General Sans', 'Inter', system-ui, sans-serif" }}>
               Tailored Banking &amp; Trust Services
             </span>
           </p>
-
           <h1
             className="text-white leading-none"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontSize: "clamp(1.8rem, 2vw, 1.3rem)", // Much better for mobile
+              fontSize: "clamp(1.8rem, 2vw, 1.3rem)",
               fontWeight: 300,
               maxWidth: "680px",
             }}

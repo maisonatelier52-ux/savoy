@@ -153,7 +153,7 @@ export default function SavoyAbout() {
         <div className="third-img-col">
           <div className="third-img-wrap">
             <Image
-              src="/savoy-2.png"
+              src="/savoy-13.png"
               alt="Compass illustration"
               width={620}
               height={760}
