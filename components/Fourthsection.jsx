@@ -299,7 +299,7 @@ export default function SavoyServices() {
         </div>
 
         {/* ── RIGHT: lighthouse illustration ── */}
-        <div className="fourth-img-col">
+        {/* <div className="fourth-img-col">
           <div className="fourth-img-wrap">
             <Image
               src="/savoy-22.png"
@@ -315,7 +315,7 @@ export default function SavoyServices() {
               priority={false}
             />
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

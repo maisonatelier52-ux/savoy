@@ -731,6 +731,8 @@
 //     </>
 //   );
 // }
+
+
 "use client";
 
 import BrandFooterSection from "@/components/Brandfootersection";
@@ -791,30 +793,36 @@ export default function Home() {
   }, [videoEnded]);
 
   // ── Core: play or skip ───────────────────────────────────────
+  // useEffect(() => {
+  //   if (introShown) {
+  //     skipToEnd();
+  //     return;
+  //   }
+
+  //   introShown = true;
+
+  //   const t1 = setTimeout(() => setPhase(1), 300);
+  //   const vid = videoRef.current;
+  //   if (vid) {
+  //     vid.playbackRate = 0.75; // slow playback — change to 0.5 for slower, 1.0 for normal slow down 0.6 ,0.5 this good slow down without making it too long
+  //     vid.play().catch(() => handleVideoEnd());
+  //   }
+  //   return () => clearTimeout(t1);
+  // }, []);
+
+  // // Safety fallback: if video never fires onEnded within 15s
+  // useEffect(() => {
+  //   const fallback = setTimeout(() => {
+  //     if (!endHandled.current) handleVideoEnd();
+  //   }, 15000);
+  //   return () => clearTimeout(fallback);
+  // }, []);
+
+
   useEffect(() => {
-    if (introShown) {
-      skipToEnd();
-      return;
-    }
-
-    introShown = true;
-
-    const t1 = setTimeout(() => setPhase(1), 300);
-    const vid = videoRef.current;
-    if (vid) {
-      vid.playbackRate = 0.75; // slow playback — change to 0.5 for slower, 1.0 for normal slow down 0.6 ,0.5 this good slow down without making it too long
-      vid.play().catch(() => handleVideoEnd());
-    }
-    return () => clearTimeout(t1);
-  }, []);
-
-  // Safety fallback: if video never fires onEnded within 15s
-  useEffect(() => {
-    const fallback = setTimeout(() => {
-      if (!endHandled.current) handleVideoEnd();
-    }, 15000);
-    return () => clearTimeout(fallback);
-  }, []);
+  setPhase(4);
+  setVideoEnded(true);
+}, []);
 
   return (
     <>
@@ -873,7 +881,7 @@ export default function Home() {
             transitionDuration: "2000ms",
           }}
         >
-          <video
+          {/* <video
             ref={videoRef}
             className={`w-full h-full ${isMobile ? "object-cover" : "object-fill"}`}
             autoPlay
@@ -884,7 +892,7 @@ export default function Home() {
               e.target.playbackRate = 0.75; // keeps slow speed after buffering
             }}
             src={isMobile ? "/homebannervideo-mobile.mp4" : "/homebannervideo3.mp4"}
-          />
+          /> */}
         </div>
 
         {/* Post-video layer — empty placeholder */}
@@ -904,7 +912,7 @@ export default function Home() {
             transitionTimingFunction: "ease-in-out",
           }}
         >
-          <div className="absolute right-0 bottom-0 w-full top-0 md:w-[40%] md:top-[20%]">
+          {/* <div className="absolute right-0 bottom-0 w-full top-0 md:w-[40%] md:top-[20%]">
             <img
               src="/savoy-23.png"
               alt="Lighthouse"
@@ -916,7 +924,7 @@ export default function Home() {
                 WebkitMaskComposite: "source-in",
               }}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom text */}

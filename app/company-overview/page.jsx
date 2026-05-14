@@ -875,7 +875,7 @@ export default function CompanyOverview() {
           className="relative min-h-screen flex items-end overflow-hidden px-8 md:px-16 pb-20"
         >
           {/* Desktop bg image */}
-          <div className="absolute inset-0 pointer-events-none hidden md:block">
+          {/* <div className="absolute inset-0 pointer-events-none hidden md:block">
             <Image
               src="/savoy-4.png"
               alt="savoy-lighthouse"
@@ -883,10 +883,10 @@ export default function CompanyOverview() {
               priority
               style={{ objectFit: "cover", objectPosition: "center", opacity: 0.25 }}
             />
-          </div>
+          </div> */}
 
           {/* Mobile image — top of section */}
-          <div className="md:hidden absolute top-0 left-0 right-0" style={{ height: "800px", zIndex: 0 }}>
+          {/* <div className="md:hidden absolute top-0 left-0 right-0" style={{ height: "800px", zIndex: 0 }}>
             <Image
               src="/savoy-4.png"
               alt="savoy-lighthouse"
@@ -898,7 +898,7 @@ export default function CompanyOverview() {
               position: "absolute", inset: 0,
               background: "linear-gradient(to bottom, transparent 30%, black 100%)"
             }} />
-          </div>
+          </div> */}
 
           <div className="relative z-10 w-full mt-[260px] md:mt-0">
             <div className="pl-0 md:pl-5">
@@ -943,24 +943,24 @@ export default function CompanyOverview() {
           className="relative overflow-hidden py-5 md:py-24 px-6 md:px-16"
         >
           {/* Desktop right image */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none hidden md:block">
+          {/* <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none hidden md:block">
             <Image
               src="/savoy-15.png"
               alt=""
               fill
               style={{ objectFit: "contain", objectPosition: "left top", opacity: 0.9 }}
             />
-          </div>
+          </div> */}
 
           {/* Mobile image — above text */}
-          <div className="md:hidden relative w-full mb-10" style={{ height: "400px" }}>
+          {/* <div className="md:hidden relative w-full mb-10" style={{ height: "400px" }}>
             <Image
               src="/savoy-15.png"
               alt=""
               fill
               style={{ objectFit: "contain", objectPosition: "center", opacity: 0.9 }}
             />
-          </div>
+          </div> */}
 
           <div className="relative z-10 max-w-3xl">
             <div style={fadeLeft(introInView)} className="mb-10">
@@ -1105,7 +1105,7 @@ export default function CompanyOverview() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
 
             {/* Mobile vision image — above text */}
-            <div className="md:hidden relative w-full mb-2" style={{ height: "540px" }}>
+            {/* <div className="md:hidden relative w-full mb-2" style={{ height: "540px" }}>
               <Image
                 src="/savoy-3.png"
                 alt="Lighthouse cross-section"
@@ -1117,7 +1117,7 @@ export default function CompanyOverview() {
                   WebkitMaskImage: "radial-gradient(ellipse 80% 85% at 50% 50%, black 45%, transparent 100%)",
                 }}
               />
-            </div>
+            </div> */}
 
             {/* Text column */}
             <div>
@@ -1176,7 +1176,7 @@ export default function CompanyOverview() {
             </div>
 
             {/* Desktop lighthouse — hidden on mobile */}
-            <div
+            {/* <div
               style={fadeRight(visionInView, "0.2s")}
               className="hidden md:flex justify-center"
             >
@@ -1193,7 +1193,7 @@ export default function CompanyOverview() {
                   }}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 

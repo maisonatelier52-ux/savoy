@@ -512,21 +512,21 @@ export default function About() {
         <section ref={heroRef} className="relative min-h-screen flex items-end overflow-hidden px-6 pt-32 pb-12 md:px-20 md:pb-24 md:pt-0">
 
           {/* Desktop watermark */}
-          <div className="hidden md:block absolute right-10 top-10 bottom-0 w-1/2 pointer-events-none select-none">
+          {/* <div className="hidden md:block absolute right-10 top-10 bottom-0 w-1/2 pointer-events-none select-none">
             <div className="absolute inset-0 flex items-center justify-center">
               <div style={{ width:"min(660px,44vw)", height:"min(560px,44vw)", position:"relative" }}>
                 <Image src="/savoy-15.png" alt="" fill style={{ objectFit:"contain", opacity:0.75 }} />
               </div>
             </div>
             <div className="absolute inset-0" style={{ background:"linear-gradient(to right,#000 0%,transparent 0%)" }} />
-          </div>
+          </div> */}
 
           {/* Mobile icon */}
-          <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          {/* <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none select-none">
             <div style={{ width:"560px", height:"620px", position:"relative" }}>
               <Image src="/savoy-1.png" alt="" fill style={{ objectFit:"contain", opacity:0.25 }} />
             </div>
-          </div>
+          </div> */}
 
           <div className="relative z-10 w-full md:max-w-2xl">
             <h1
@@ -617,12 +617,12 @@ export default function About() {
         {/* ══ MILESTONES ════════════════════════════════════════════ */}
         <section ref={milestoneRef} className="relative py-12 md:py-24 px-6 md:px-20 overflow-hidden">
           {/* Desktop watermark */}
-          <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
+          {/* <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none"
                style={{ width:"480px", height:"580px", marginRight:"70px", position:"absolute" }}>
             <div className="w-full h-full relative">
               <Image src="/savoy-2.png" alt="" fill style={{ objectFit:"contain", opacity:0.75 }} />
             </div>
-          </div>
+          </div> */}
 
           <div className="relative z-10 w-full md:max-w-2xl">
             <div style={fadeLeft(milestoneInView)} className="mb-10 md:mb-14">
@@ -700,7 +700,7 @@ export default function About() {
             </div>
 
             {/* Desktop image */}
-            <div style={fadeRight(locationInView,"0.15s")} className="hidden md:flex justify-center items-center">
+            {/* <div style={fadeRight(locationInView,"0.15s")} className="hidden md:flex justify-center items-center">
               <div className="relative" style={{ width:"600px", height:"700px" }}>
                 <Image
                   src="/savoy-3.png"
@@ -713,7 +713,7 @@ export default function About() {
                   }}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 

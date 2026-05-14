@@ -737,46 +737,7 @@ export default function SecondSection() {
             </div>
 
             {/* RIGHT — illustration image */}
-            <div
-              className={`second-top-image second-top-img-wrap${topInView ? " visible" : ""}`}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingRight: "2rem",
-                animationDelay: "0.25s",
-              }}
-            >
-              <div
-                className="second-top-img-inner"
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  maxWidth: "460px",
-                  aspectRatio: "3/4",
-                  borderRadius: "2px",
-                  overflow: "hidden",
-                  transform:
-                    "translateX(14rem)" /* ← move right — increase to taste */,
-                }}
-              >
-                <Image
-                  src="/savoy-14.png"
-                  alt="Savoy illustration"
-                  fill
-                  style={{
-                    objectFit: "contain",
-                    objectPosition:
-                      "center" /* ← back to center, translateX handles positioning */,
-                    opacity: 0.88,
-                    maskImage:
-                      "radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%)",
-                    WebkitMaskImage:
-                      "radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%)",
-                  }}
-                />
-              </div>
-            </div>
+            {/* this wher the right side image wa the code is now in note pad cannot comment lazy */}
           </div>
         </div>
 

@@ -42,10 +42,10 @@ export default function SavoyAbout() {
           max-width: 520px;
           /* Soft fade on left edge so compass blends into black bg */
           -webkit-mask-image: linear-gradient(
-            to right, transparent 0%, black 18%, black 82%, transparent 100%
+            to right, transparent 0%, black 10%, black 82%, transparent 100%
           );
           mask-image: linear-gradient(
-            to right, transparent 0%, black 18%, black 82%, transparent 100%
+            to right, transparent 0%, black 10%, black 82%, transparent 100%
           );
         }
 
@@ -153,10 +153,10 @@ export default function SavoyAbout() {
         <div className="third-img-col">
           <div className="third-img-wrap">
             <Image
-              src="/savoy-13.png"
+              src="/savoy-2.png"
               alt="Compass illustration"
               width={620}
-              height={760}
+              height={620}
               style={{ width: "100%", height: "auto", display: "block", opacity: 0.88 }}
               priority={false}
             />

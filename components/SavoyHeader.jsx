@@ -145,7 +145,7 @@ export default function SavoyHeader({ phase = 4 }) {
   const navItems = [
     { name: "ABOUT", href: "/about" },
     { name: "COMPANY OVERVIEW", href: "/company-overview" },
-    { name: "LEADERSHIP", href: "/leadership" },
+    // { name: "LEADERSHIP", href: "/leadership" },
     { name: "CONTACT US", href: "/contact-us" },
   ];
 

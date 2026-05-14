@@ -536,7 +536,7 @@ export default function ContactUs() {
           </div>
 
           {/* ── RIGHT: sticky image column — desktop only ── */}
-          <div className="hidden md:block relative flex-shrink-0" style={{ width: "50%" }}>
+          {/* <div className="hidden md:block relative flex-shrink-0" style={{ width: "50%" }}>
             <div className="sticky top-40 h-screen">
               <Image
                 src="/logo-savoy.png"
@@ -549,18 +549,18 @@ export default function ContactUs() {
                   opacity: 0.9,
                 }}
               />
-              {/* fade left edge into black */}
+              
               <div style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to right, black 0%, transparent 35%)"
               }} />
-              {/* fade top and bottom */}
+              
               <div style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to bottom, black 0%, transparent 20%, transparent 80%, black 100%)"
               }} />
             </div>
-          </div>
+          </div> */}
 
         </div>
 
